@@ -1,92 +1,92 @@
 [
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
+        "img_url": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p.jpg",
         "name": "Hamburger",
         "health_score": 5,
         "cuisine": "American"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
+        "img_url": "https://natashaskitchen.com/wp-content/uploads/2020/03/Pan-Seared-Steak-4.jpg",
+        "name": "Steak",
+        "health_score": 9,
         "cuisine": "American"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
+        "img_url": "https://www.seriouseats.com/thmb/YwaJNJc7_TDAjdo8pzN_JElsgb4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__02__20210214-stovetop-mac-cheese-reshoot-vicky-wasik-9-0760b642ca704cf8b2c5121a363a60a2.jpg",
+        "name": "Mac and Cheese",
+        "health_score": 3,
         "cuisine": "American"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
+        "name": "Tacos",
+        "health_score": 10,
+        "cuisine": "Mexican"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://assets.epicurious.com/photos/579f850ce4857f9f1047d0b0/master/w_1000,h_779,c_limit/chicken-enchiladas.jpg",
+        "name": "Enchiladas",
+        "health_score": 6,
+        "cuisine": "Mexican"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
+        "img_url": "https://st.depositphotos.com/1022214/2138/i/950/depositphotos_21382401-stock-photo-porras-thick-churros-typical-of.jpg",
+        "name": "Churros",
         "health_score": 5,
-        "cuisine": "American"
+        "cuisine": "Mexican"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://clipartix.com/wp-content/uploads/2018/03/spaghetti-clipart-2018-12.jpg",
+        "name": "Spaghetti",
+        "health_score": 10,
+        "cuisine": "Italian"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Lasagna_%281%29.jpg",
+        "name": "Lasagna",
+        "health_score": 4,
+        "cuisine": "Italian"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Pepperoni_pizza_2.jpg",
+        "name": "Pizza",
+        "health_score": 2,
+        "cuisine": "Italian"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://www.seriouseats.com/thmb/zKq67u3TJ3B0wknpgyc-y8ymP3U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2013__11__20131112-turkey-weisswurst-recipe-34-ba385b3d5ab64d1786f45a7b39c20e8e.jpg",
+        "name": "Sausage",
+        "health_score": 1,
+        "cuisine": "German"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
+        "img_url": "https://images.kitchenstories.io/recipeImages/34_02_RusticGermanBread_TitlePicture.jpg",
+        "name": "Bread",
         "health_score": 5,
-        "cuisine": "American"
+        "cuisine": "German"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://images.squarespace-cdn.com/content/v1/5b688ded9d5abb4e2e5dc1ab/1616696934199-5P69506JT1XSC12ALZY5/NW+classic+german+potato+salad+image.jpg",
+        "name": "Potato Salad",
+        "health_score": 7,
+        "cuisine": "German"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://kirbiecravings.com/wp-content/uploads/2020/01/jiaozi-dumplings-12.jpg",
+        "name": "Dumplings",
+        "health_score": 8,
+        "cuisine": "Chinese"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
+        "img_url": "https://st.depositphotos.com/1529768/1320/i/600/depositphotos_13203117-stock-photo-chicken-chow-mein.jpg",
+        "name": "Chow Mein",
         "health_score": 5,
-        "cuisine": "American"
+        "cuisine": "Chinese"
     },
     {
-        "img_url": "https://unsplash.com/photos/sc5sTPMrVfk",
-        "name": "Hamburger",
-        "health_score": 5,
-        "cuisine": "American"
+        "img_url": "https://www.smalltownwoman.com/wp-content/uploads/2021/04/Chinese-Chicken-Salad-Recipe-Card-1.jpg",
+        "name": "Salad",
+        "health_score": 10,
+        "cuisine": "Chinese"
     }
 ]
