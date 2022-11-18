@@ -1,1 +1,84 @@
-/* CSS */
+body {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ececec;
+
+}
+
+.title-bar {
+
+    background-color: #b51204;
+    color: #fdc782;
+    font-size: 42px;
+    border-radius: 5px;
+
+}
+
+#title-contents {
+
+    height: 150;
+
+}
+
+#title-contents img {
+
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+
+}
+
+#title {
+
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+
+#results-main-box {
+
+    background-color: #fdc782;
+    height: 1000px;
+    width: 750px;
+    border-width: 5px;
+    border-color: #000000;
+    border-radius: 15px;
+    margin: auto;
+
+}
+
+#results-main-box img {
+
+    max-height: 500px;
+    max-width: 650px;
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+
+}
+
+#your-results {
+
+    font-size: 32px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+.food-name {
+
+    font-size: 24px;
+    padding-left: 20px;
+
+}
+
+.health-score-text, .cuisine-text {
+
+    font-size: 18px;
+    padding-left: 20px;
+}
