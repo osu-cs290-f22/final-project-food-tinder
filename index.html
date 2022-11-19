@@ -1,1 +1,78 @@
 <!-- HTML -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+    
+    <!-- Title and Header Bar -->
+   <head>
+       <!--
+      This 3rd-party stylesheet incorporates SVG icons from Font Awesome:
+      http://fontawesome.com/.  Specifically, each of the <i> elements below
+      incorporates an icon from Font Awesome.
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+    <title>Food Tinder</title>
+    <link rel="stylesheet" href="style.css">
+   </head>
+
+   <body>
+    <div class="title-bar">
+        <div id="title-contents">
+            <img src="food-tinder-logo.png" alt="Food Tinder Logo">
+            <h1 id="title">Food Tinder</h1>
+        </div>
+    </div>
+
+    <main class = "content">
+
+  
+        <!-- Food Box  -->
+        <center>
+        <div class = "food-box", id = "first-food-box">
+             <!-- Food Box Picture -->
+            <div class="food-img-box"> 
+                <img src="https://i.pinimg.com/originals/07/e0/8c/07e08c1195f197dab954a89723339b3b.jpg" alt="Some Food">
+            </div>
+             <!-- Food Box Contents like name and info -->
+            <div class="inner-food-box">
+                <div class = "food-name-box">
+                    <h2 class="food-title">
+                        Some Food
+                    </h2>
+                </div>  
+                <div class = "food-info-box">
+                    <h3 class="food-info">
+                        Some Food Information
+                    </h3>
+                </div>
+                <div class = "food-other-box">
+                    <h3 class="food-title">
+                        Some Other food stuff
+                    </h3>
+                </div>
+            </div>
+        </div>
+        </center>
+
+        
+        <!-- Click Icons  -->
+        <center>
+            <div class = "like-button">
+                <button type="button" id="like-button">
+                <i class="fas fa-heart"></i></button> 
+            </div>
+    
+            <div class="dislike-button">
+                <button type="button" id="dislike-button">
+                <i class="fas fa-heart-broken"></i></button>
+            </div>
+            <button type="button" id="sell-something-button"><i class="fas fa-plus"></i></button>
+        </center>
+        
+        
+        <!-- Sidebar/Ads? -->
+        <!--TBD if time allows -->
+    </body>
+
+    </main>
+</html>
