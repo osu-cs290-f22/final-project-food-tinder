@@ -145,7 +145,7 @@ button:hover{
     display: flex;
     flex-direction: row;
     width: 25%;
-    height: 100px;
+    height: 100%;
     background: rgb(134, 184, 231);
     align-items: center;
     justify-content: center;
