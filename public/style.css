@@ -113,25 +113,13 @@ img {
     border-radius: 5px;
 }
 
-.like-button{
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    background: rgb(40, 163, 40); 
-}
-
 #like-button{
     margin: 10px;
     background: none;
     border:none;
 }
-.dislike-button{
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    background: rgb(221, 34, 34);
+#like-button:hover{
+    color: green;
 }
 
 #dislike-button{
@@ -140,17 +128,22 @@ img {
     border:none;
 }
 
-i{
-    font-size: 45px;
+#dislike-button:hover{
+    color: rgb(221, 34, 34);
 }
 
-i:hover{
+i{
+    font-size: 50px;
+}
+
+button:hover{
     cursor: pointer;
 }
 
 .results-button-box{
     margin: 15px;
     display: flex;
+    flex-direction: row;
     width: 25%;
     height: 100px;
     background: rgb(134, 184, 231);
@@ -159,7 +152,7 @@ i:hover{
     border-radius: 25px;
 }
 #results-button{
-    margin:10px;
+    margin:1px;
     background: none;
     border:none;
 }
