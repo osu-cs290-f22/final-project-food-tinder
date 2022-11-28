@@ -20,7 +20,7 @@ app.get("*", function (req, res, next) {
 
 app.listen(port)
 
-var foodObjects = include('food_objects.json')
+var foodObjects = require('./food_objects.json')
 
 function nextCard (idx) {
 
