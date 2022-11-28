@@ -19,3 +19,17 @@ app.get("*", function (req, res, next) {
 })
 
 app.listen(port)
+
+var foodObjects = include('food_objects.json')
+
+function nextCard (idx) {
+
+    res.status(200).render('foodCard', {
+
+        'foodData': foodObjects[idx]
+
+    })
+
+}
+
+module.exports = nextCard
