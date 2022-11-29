@@ -26,7 +26,8 @@ function likeClickHandler() {
 
     var request = new XMLHttpRequest()
     request.open("POST", "/cards/liked", true)
-    request.send(reqBody)
+    // probably have to create a document
+    request.send(JSON.stringify(reqBody))
 
     currCardIdx++
 
@@ -35,7 +36,11 @@ function likeClickHandler() {
 function dislikeClickHandler() {
 
     // render next card with get request (or post?)
+    var request = new XMLHttpRequest()
+    request.open("GET", "/cards/" + currCardIdx, true)
+    request.send()
     console.log("dislike clicked")
+    window.location.href = "./cards/" + currCardIdx
     currCardIdx++
 
 }

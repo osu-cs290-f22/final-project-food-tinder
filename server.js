@@ -2,16 +2,12 @@
 
 var express = require("express")
 var app = express()
-var fs = require("fs")
 var exphbs = require("express-handlebars")
 var foodData = require("./food-objects.json")
+var likes = [] // this could be a json file, but right now we have no need to store likes permanently
 var port = process.env.PORT || 3001
 
 var app = express()
-// app.engine("handlebars", exphbs.engine({
-//     defaultLayout: "main"
-// }))
-// app.set("view engine", "handlebars")
 
 // HELPER FUNCTIONS https://wolfgang-ziegler.com/blog/a-scripts-section-for-your-handlebars-layout-template
 var hbs = exphbs.create({
@@ -29,8 +25,12 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', '.hbs')
 
 app.get("/", function (req, res, next) {
+
+    // TODO redirect to /cards/0
+    firstCard = []
+    firstCard[0] = foodData[0]
     res.status(200).render('foodPage', {
-        foodCards: foodData
+        foodCards: firstCard
     })
 })
 
@@ -39,21 +39,28 @@ app.get("/results", function (req, res, next) {
     res.status(200).render('results', foodData[0]) // replace w/ final context
 })
 
-
-// when the page is loaded for the first time, clean out and/or create the likes file
-fs.writeFileSync("likes.json", "")
-
 app.use(express.static("public/"))
 app.use(express.json()) // generate and register a middleware function with our server
 
-app.get("/", function (req, res, next) {
-    res.status(200).sendFile(__dirname + "/public/index.html")
-})
-
 app.post("/cards/liked", function(req, res, next) {
 
-    fs.appendFileSync("likes.json", req.body.cardIndex)
-    console.log("wrote to the file!")
+    console.log(req.body)
+    likes.push(req.body.cardIndex)
+    res.status(200).send("Added card index to the array")
+
+})
+
+app.get("/cards/:card", function(req, res, next){
+
+    console.log(foodData[req.params.card])
+    var singleCard = []
+    singleCard[0] = foodData[req.params.card]
+    res.status(200).render('foodPage', {
+
+        foodCards: singleCard // only render single card
+
+    })
+    console.log("rendered!")
 
 })
 
