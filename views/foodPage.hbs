@@ -1,0 +1,12 @@
+{{#section 'script'}}
+    <script type="application/javascript" src="/index.js" charset="utf-8" defer></script>
+{{/section}}
+
+<main class="content">
+    <!-- Food Box  -->
+    {{#each foodCards}}
+        {{> foodCard}}
+    {{/each}}
+
+   {{> actionButtons}}
+</main>
