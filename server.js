@@ -34,7 +34,7 @@ app.get("/", function (req, res, next) {
 
 // **TO DO: when user clicks on match button on client, server renders results page with context, and sends user to that page
 app.get("/results", function (req, res, next) {
-    res.status(200).render('results')
+    res.status(200).render('results', foodData[0]) // replace w/ final context
 })
 
 app.use(express.static("public/"))
