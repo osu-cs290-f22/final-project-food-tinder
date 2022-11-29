@@ -47,5 +47,5 @@ app.get("*", function (req, res, next) {
 app.listen(port, function(err) {
     if (err)
         throw err
-    console.log("-- server listening on port", port)
+    console.log("-- Server listening on port", port)
 })
