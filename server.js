@@ -1,7 +1,6 @@
 // back end JS
 
 var express = require("express")
-var app = express()
 var exphbs = require("express-handlebars")
 var foodData = require("./food-objects.json")
 var likes = [] // this could be a json file, but right now we have no need to store likes permanently
@@ -23,24 +22,18 @@ var hbs = exphbs.create({
 })
 app.engine('hbs', hbs.engine)
 app.set('view engine', '.hbs')
+app.use(express.static("public/"))
+app.use(express.json()) // generate and register a middleware function with our server
 
 app.get("/", function (req, res, next) {
 
-    // TODO redirect to /cards/0
-    firstCard = []
-    firstCard[0] = foodData[0]
-    res.status(200).render('foodPage', {
-        foodCards: firstCard
-    })
+    res.redirect("/cards/0")
 })
 
 // **TO DO: when user clicks on match button on client, server renders results page with context, and sends user to that page
 app.get("/results", function (req, res, next) {
     res.status(200).render('results', foodData[0]) // replace w/ final context
 })
-
-app.use(express.static("public/"))
-app.use(express.json()) // generate and register a middleware function with our server
 
 app.post("/cards/liked", function(req, res, next) {
 
@@ -61,6 +54,7 @@ app.get("/cards/:card", function(req, res, next){
 
     })
     console.log("rendered!")
+    return
 
 })
 
