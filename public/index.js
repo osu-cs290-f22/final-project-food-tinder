@@ -1,7 +1,7 @@
 var currCardIdx = 0
 
 var likeButton = document.getElementById("like-button")
-likeButton.addEventListener("click", likeClickHandler())
+likeButton.addEventListener("click", likeClickHandler)
 
 var dislikeButton = document.getElementById("dislike-button")
 dislikeButton.addEventListener("click", function () {
@@ -28,7 +28,7 @@ function likeClickHandler() {
 
     var url = window.location.href
     var lastSlashIdx = url.lastIndexOf("/")
-    var cardIdx = url.substring(lastSlashIdx + 1)
+    var cardIdx = parseInt(url.substring(lastSlashIdx + 1))
 
     var reqBody = {
 
@@ -37,27 +37,26 @@ function likeClickHandler() {
     }
 
     var request = new XMLHttpRequest()
-    request.open("POST", "/cards/liked", true)
-    // probably have to create a document
-    //request.send(JSON.stringify(reqBody))
+    request.open("POST", "/post/liked", true)
+    request.setRequestHeader("Content-Type", "application/json")
+    request.send(JSON.stringify(reqBody))
+    console.log("POAST REQUEST")
 
-    // var promise = new Promise(function(resolve, reject) {
+    if (cardIdx < 14) {
 
-    //     resolve(++currCardIdx)
+        window.location.href = cardIdx + 1
 
-    // })
-    // promise.then(function(idx) {
+    } else {
 
-    //     currCardIdx = idx
-    //     console.log(currCardIdx)
+        window.location.href = "/results"
 
-    // })
+    }
 
 }
 
 function resultsHandler() {
 
     // navigate to results page
-    window.location.href = "./results"
+    window.location.href = "/results"
 
 }

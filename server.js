@@ -35,11 +35,11 @@ app.get("/results", function (req, res, next) {
     res.status(200).render('results', foodData[0]) // replace w/ final context
 })
 
-app.post("/cards/liked", function(req, res, next) {
+app.post("/post/liked", function(req, res, next) {
 
-    console.log(req.body)
     likes.push(req.body.cardIndex)
     res.status(200).send("Added card index to the array")
+    console.log(likes)
 
 })
 
@@ -53,9 +53,6 @@ app.get("/cards/:card", function(req, res, next){
         foodCards: singleCard // only render single card
 
     })
-    console.log("rendered!")
-    console.log(req.params.card)
-
 })
 
 app.get("*", function (req, res, next) {
