@@ -54,7 +54,7 @@ app.get("/cards/:card", function(req, res, next){
 
     })
     console.log("rendered!")
-    return
+    console.log(req.params.card)
 
 })
 
