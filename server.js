@@ -83,7 +83,7 @@ app.get("/cards/:card", function(req, res, next){
     
         })
 
-    } else {
+    } else { // otherwise 404
 
         next()
 

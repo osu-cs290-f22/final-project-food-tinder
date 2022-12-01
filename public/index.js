@@ -1,14 +1,15 @@
-var currCardIdx = 0
-
 var likeButton = document.getElementById("like-button")
 likeButton.addEventListener("click", likeClickHandler)
 
 var dislikeButton = document.getElementById("dislike-button")
 dislikeButton.addEventListener("click", function () {
 
+    // pull current card index from the URL (solution courtesy of Jace)
     var url = window.location.href
     var lastSlashIdx = url.lastIndexOf("/")
     var cardIdx = parseInt(url.substring(lastSlashIdx + 1))
+
+    // if the index is greater than the number of cards, auto naviagate to results
     if (cardIdx < 14) {
 
         window.location.href = cardIdx + 1
@@ -22,25 +23,34 @@ dislikeButton.addEventListener("click", function () {
 })
 
 var resultsButton = document.getElementById("results-button")
-resultsButton.addEventListener("click", resultsHandler)
+resultsButton.addEventListener("click", function () {
+
+    // navigate to results page on click of results button
+    window.location.href = "/results"
+    
+})
 
 function likeClickHandler() {
 
+    // again, pull current card index from the URL
     var url = window.location.href
     var lastSlashIdx = url.lastIndexOf("/")
     var cardIdx = parseInt(url.substring(lastSlashIdx + 1))
 
+    // put that index in a JSON object
     var reqBody = {
 
         "cardIndex": cardIdx
 
     }
 
+    // send a POST request containing that index to the server
     var request = new XMLHttpRequest()
     request.open("POST", "/post/liked", true)
     request.setRequestHeader("Content-Type", "application/json")
     request.send(JSON.stringify(reqBody))
 
+    // again, navigate to results if the end is reached
     if (cardIdx < 14) {
 
         window.location.href = cardIdx + 1
@@ -50,12 +60,5 @@ function likeClickHandler() {
         window.location.href = "/results"
 
     }
-
-}
-
-function resultsHandler() {
-
-    // navigate to results page
-    window.location.href = "/results"
 
 }
