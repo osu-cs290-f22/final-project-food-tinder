@@ -40,7 +40,6 @@ function likeClickHandler() {
     request.open("POST", "/post/liked", true)
     request.setRequestHeader("Content-Type", "application/json")
     request.send(JSON.stringify(reqBody))
-    console.log("POAST REQUEST")
 
     if (cardIdx < 14) {
 
