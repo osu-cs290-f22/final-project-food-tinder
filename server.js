@@ -30,11 +30,23 @@ app.get("/", function (req, res, next) {
 })
 
 app.get("/results", function (req, res, next) {
-    let likes;
-    fetch('./likes.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-    likes = response.json();
+    if (likes.length == 0) {
+        res.status(500).send("Results could not be calculated!")
+        console.log(" -- 500!")
+    }
+    //1. for loop to iterate through the food data array
+
+        //parse through to read health score and add it to an array
+
+        //read most liked cuisine and add it to a different array
+    
+    //for loop to go through the averages and add to a sum
+
+    //divide by the number of likes after the loop
+
+    //2. 5 count variables and add to it depending on the cuisine type
+
+    //3. whichever count variable is the most liked cuisine and closest to the average health score will get placed in foodData[0]
     
 
     /*

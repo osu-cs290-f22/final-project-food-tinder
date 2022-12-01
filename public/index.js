@@ -26,7 +26,15 @@ var resultsButton = document.getElementById("results-button")
 resultsButton.addEventListener("click", function () {
 
     // navigate to results page on click of results button
-    window.location.href = "/results"
+    fetch("/results").then(function(res) {
+
+        if (res.status !== 200) {
+
+            alert("Not enough data to calculate results!")
+
+        }
+
+    })
     
 })
 
@@ -45,10 +53,16 @@ function likeClickHandler() {
     }
 
     // send a POST request containing that index to the server
-    var request = new XMLHttpRequest()
-    request.open("POST", "/post/liked", true)
-    request.setRequestHeader("Content-Type", "application/json")
-    request.send(JSON.stringify(reqBody))
+    fetch("/post/liked", {
+        method: "POST",
+        body: reqBody, 
+        headers: {"Content-Type": "application/json"}
+    
+    })
+    // var request = new XMLHttpRequest()
+    // request.open("POST", "/post/liked", true)
+    // request.setRequestHeader("Content-Type", "application/json")
+    // request.send(JSON.stringify(reqBody))
 
     // again, navigate to results if the end is reached
     if (cardIdx < 14) {
@@ -57,7 +71,17 @@ function likeClickHandler() {
 
     } else {
 
-        window.location.href = "/results"
+        //window.location.href = "/results"
+        fetch("/results").then(function(res) {
+
+            if (res.status !== 200) {
+
+                alert("Not enough data to calculate results!")
+                window.location.href = cardIdx
+
+            }
+
+        })
 
     }
 
