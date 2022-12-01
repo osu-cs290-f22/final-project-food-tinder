@@ -1,3 +1,4 @@
+const { response } = require("express")
 var express = require("express")
 var exphbs = require("express-handlebars")
 var foodData = require("./food-objects.json")
@@ -29,6 +30,12 @@ app.get("/", function (req, res, next) {
 })
 
 app.get("/results", function (req, res, next) {
+    let likes;
+    fetch('./likes.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+    likes = response.json();
+    
 
     /*
 
