@@ -1,4 +1,3 @@
-const { response } = require("express")
 var express = require("express")
 var exphbs = require("express-handlebars")
 var foodData = require("./food-objects.json")
@@ -34,6 +33,11 @@ app.get("/results", function (req, res, next) {
         //Works but can replace with special case N/A object
         res.status(500).send("Results could not be calculated!")
         console.log(" -- 500!")
+    } else {
+
+        // successful request here; foodData[0] will be replaced with your object!
+        res.status(200).render('results', foodData[0]) 
+
     }
     //1. for loop to iterate through the food data array
 
@@ -75,8 +79,6 @@ app.get("/results", function (req, res, next) {
     - Ellie
 
     */ 
-
-    res.status(200).render('results', foodData[0]) 
 })
 
 app.post("/post/liked", function(req, res, next) {
