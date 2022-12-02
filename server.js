@@ -31,6 +31,7 @@ app.get("/", function (req, res, next) {
 
 app.get("/results", function (req, res, next) {
     if (likes.length == 0) {
+        //Works but can replace with special case N/A object
         res.status(500).send("Results could not be calculated!")
         console.log(" -- 500!")
     }

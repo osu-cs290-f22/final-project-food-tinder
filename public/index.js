@@ -16,7 +16,17 @@ dislikeButton.addEventListener("click", function () {
 
     } else {
 
-        window.location.href = "/results"
+        //window.location.href = "/results"
+        fetch("/results").then(function(res) {
+
+            if (res.status !== 200) {
+
+                //window.location.href = cardIdx
+                alert("Not enough data to calculate results!")
+
+            }
+
+        })
 
     }
 
@@ -76,8 +86,8 @@ function likeClickHandler() {
 
             if (res.status !== 200) {
 
+                //window.location.href = cardIdx
                 alert("Not enough data to calculate results!")
-                window.location.href = cardIdx
 
             }
 
