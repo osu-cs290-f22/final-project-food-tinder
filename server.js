@@ -46,7 +46,7 @@ app.get("/results", function (req, res, next) {
         likedCuisineArr.push(foodData[likes[i]].cuisine)
     }   
     //for loop to go through the healthscore arr and add to a sum
-    let sum; 
+    let sum = 0; 
     for (let i = 0; i < healthScoreArr.length; ++i) {
         console.log(healthScoreArr[i]) 
         sum += healthScoreArr[i]
@@ -56,7 +56,8 @@ app.get("/results", function (req, res, next) {
     //average health score = sum
     console.log("  --Average Health Score: ", average_health_score)
     //2. 5 count variables and add to it depending on the cuisine type
-    let countA, countM, countI, countG, countC
+    console.log("  --LikedCuisineArr: ", likedCuisineArr)
+    let countA = 0, countM = 0, countI = 0, countG = 0, countC = 0
     for (let i = 0; i < likedCuisineArr.length; ++i) {
         if (likedCuisineArr[i] == 'American') {
             countA++
@@ -102,8 +103,8 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: average_health_score,
+                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
                 res.status(200).render('results', foodMatch)
@@ -116,8 +117,8 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Mexican' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: average_health_score,
+                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
                 res.status(200).render('results', foodMatch)
@@ -130,8 +131,8 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Italian' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: average_health_score,
+                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
                 res.status(200).render('results', foodMatch)
@@ -144,8 +145,8 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'German' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: average_health_score,
+                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
                 res.status(200).render('results', foodMatch)
@@ -158,8 +159,8 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Chinese' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: average_health_score,
+                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
                 res.status(200).render('results', foodMatch)
