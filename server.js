@@ -33,12 +33,8 @@ app.get("/results", function (req, res, next) {
         //Works but can replace with special case N/A object
         res.status(500).send("Results could not be calculated!")
         console.log(" -- 500!")
-    } else {
-
-        // successful request here; foodData[0] will be replaced with your object!
-        res.status(200).render('results', foodData[0]) 
-
-    }
+        return;
+    } 
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
     let likedCuisineArr = []
@@ -63,7 +59,7 @@ app.get("/results", function (req, res, next) {
     console.log("  --Average Health Score: ", average_health_score)
     //2. 5 count variables and add to it depending on the cuisine type
     let countA, countM, countI, countG, countC
-    for (let i = 0; j < likedCuisineArr.length; ++i) {
+    for (let i = 0; i < likedCuisineArr.length; ++i) {
         if (likedCuisineArr[i] == 'American') {
             countA++
         }
@@ -105,41 +101,71 @@ app.get("/results", function (req, res, next) {
     let foodMatch;
     if (favoriteCuisine == 'American') {
         for (let i = 0; i < likes.length; ++i) {
-            if (likes[i].cuisine == 'American' && likes[i].health_score >= average_health_score) {
-                foodMatch = likes[i]
-                foodData[0] = foodMatch
+            if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
+                foodMatch = {
+                    img_url: foodData[likes[i]].img_url,
+                    name: foodData[likes[i]].name,
+                    health_score: average_health_score,
+                    cuisine: favoriteCuisine
+                }
+                res.status(200).render('results', foodMatch)
+                return;
             }
         }
     }
     else if (favoriteCuisine == 'Mexican') {
         for (let i = 0; i < likes.length; ++i) {
-            if (likes[i].cuisine == 'Mexican' && likes[i].health_score >= average_health_score) {
-                foodMatch = likes[i]
-                foodData[0] = foodMatch
+            if (foodData[likes[i]].cuisine == 'Mexican' && foodData[likes[i]].health_score >= average_health_score) {
+                foodMatch = {
+                    img_url: foodData[likes[i]].img_url,
+                    name: foodData[likes[i]].name,
+                    health_score: average_health_score,
+                    cuisine: favoriteCuisine
+                }
+                res.status(200).render('results', foodMatch)
+                return;
             }
         }
     }
     else if (favoriteCuisine == 'Italian') {
         for (let i = 0; i < likes.length; ++i) {
-            if (likes[i].cuisine == 'Italian' && likes[i].health_score >= average_health_score) {
-                foodMatch = likes[i]
-                foodData[0] = foodMatch
+            if (foodData[likes[i]].cuisine == 'Italian' && foodData[likes[i]].health_score >= average_health_score) {
+                foodMatch = {
+                    img_url: foodData[likes[i]].img_url,
+                    name: foodData[likes[i]].name,
+                    health_score: average_health_score,
+                    cuisine: favoriteCuisine
+                }
+                res.status(200).render('results', foodMatch)
+                return;
             }
         }
     }
     else if (favoriteCuisine == 'German') {
         for (let i = 0; i < likes.length; ++i) {
-            if (likes[i].cuisine == 'German' && likes[i].health_score >= average_health_score) {
-                foodMatch = likes[i]
-                foodData[0] = foodMatch
+            if (foodData[likes[i]].cuisine == 'German' && foodData[likes[i]].health_score >= average_health_score) {
+                foodMatch = {
+                    img_url: foodData[likes[i]].img_url,
+                    name: foodData[likes[i]].name,
+                    health_score: average_health_score,
+                    cuisine: favoriteCuisine
+                }
+                res.status(200).render('results', foodMatch)
+                return;
             }
         }
     }
     else if (favoriteCuisine == 'Chinese') {
         for (let i = 0; i < likes.length; ++i) {
-            if (likes[i].cuisine == 'Chinese' && likes[i].health_score >= average_health_score) {
-                foodMatch = likes[i]
-                foodData[0] = foodMatch
+            if (foodData[likes[i]].cuisine == 'Chinese' && foodData[likes[i]].health_score >= average_health_score) {
+                foodMatch = {
+                    img_url: foodData[likes[i]].img_url,
+                    name: foodData[likes[i]].name,
+                    health_score: average_health_score,
+                    cuisine: favoriteCuisine
+                }
+                res.status(200).render('results', foodMatch)
+                return;
             }
         }
     }
