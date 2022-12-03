@@ -31,8 +31,13 @@ app.get("/", function (req, res, next) {
 app.get("/results", function (req, res, next) {
     if (likes.length == 0) {
         //Works but can replace with special case N/A object
-        res.status(500).send("Results could not be calculated!")
-        console.log(" -- 500!")
+       let foodMatch = {
+            img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+            name: "Your Best Food Match is Nothing!",
+            health_score: "N/A",
+            cuisine: "N/A"
+        }
+        res.status(200).render('results', foodMatch)
         return;
     } 
     //1. for loop to iterate through the food data array
