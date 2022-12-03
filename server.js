@@ -40,19 +40,109 @@ app.get("/results", function (req, res, next) {
 
     }
     //1. for loop to iterate through the food data array
-
-        //parse through to read health score and add it to an array
-
-        //read most liked cuisine and add it to a different array
-    
-    //for loop to go through the averages and add to a sum
-
+    let healthScoreArr = []
+    let likedCuisineArr = []
+    for (let i = 0; i < foodData.length; ++i) {
+        console.log(foodData[i]);
+        if (foodData[i].name == likes[i].name) {
+            //parse through to read health score and add it to an array
+            healthScoreArr.push(foodData[i].health_score)
+            //read most liked cuisine and add it to a different array
+            likedCuisineArr.push(foodData[i].cuisine)
+        }
+    }   
+    //for loop to go through the healthscore arr and add to a sum
+    let sum; 
+    for (let i = 0; i < healthScoreArr.length; ++i) {
+        console.log(healthScoreArr[i]) 
+        sum += healthScoreArr[i]
+    }
     //divide by the number of likes after the loop
-
+    let average_health_score = sum / likes.length
+    //average health score = sum
+    console.log("  --Average Health Score: ", average_health_score)
     //2. 5 count variables and add to it depending on the cuisine type
-
+    let countA, countM, countI, countG, countC
+    for (let i = 0; j < likedCuisineArr.length; ++i) {
+        if (likedCuisineArr[i] == 'American') {
+            countA++
+        }
+        else if (likedCuisineArr[i] == 'Mexican') {
+            countM++
+        }
+        else if (likedCuisineArr[i] == 'Italian') {
+            countI++
+        }
+        else if (likedCuisineArr[i] == 'German') {
+            countG++
+        }
+        else if (likedCuisineArr[i] == 'Chinese') {
+            countC++
+        }
+    }
+    let favoriteCuisine;
+    if (countA >= countM && countA >= countI && countA >= countG && countA >= countC) {
+        favoriteCuisine = 'American'
+        console.log("  --Most Liked Cuisine is American")
+    }
+    else if (countM >= countA && countM >= countI && countM >= countG && countM >= countC) {
+        favoriteCuisine = 'Mexican'
+        console.log("  --Most Liked Cuisine is Mexican")
+    }
+    else if (countI >= countM && countI >= countA && countI >= countG && countI >= countC) {
+        favoriteCuisine = 'Italian'
+        console.log("  --Most Liked Cuisine is Italian")
+    }
+    else if (countG >= countM && countG >= countI && countG >= countA && countG >= countC) {
+        favoriteCuisine = 'German'
+        console.log("  --Most Liked Cuisine is German")
+    }
+    else if (countC >= countM && countC >= countI && countC >= countG && countC >= countA) {
+        favoriteCuisine = 'Chinese'
+        console.log("  --Most Liked Cuisine is Chinese")
+    }
     //3. whichever count variable is the most liked cuisine and closest to the average health score will get placed in foodData[0]
-    
+    let foodMatch;
+    if (favoriteCuisine == 'American') {
+        for (let i = 0; i < likes.length; ++i) {
+            if (likes[i].cuisine == 'American' && likes[i].health_score >= average_health_score) {
+                foodMatch = likes[i]
+                foodData[0] = foodMatch
+            }
+        }
+    }
+    else if (favoriteCuisine == 'Mexican') {
+        for (let i = 0; i < likes.length; ++i) {
+            if (likes[i].cuisine == 'Mexican' && likes[i].health_score >= average_health_score) {
+                foodMatch = likes[i]
+                foodData[0] = foodMatch
+            }
+        }
+    }
+    else if (favoriteCuisine == 'Italian') {
+        for (let i = 0; i < likes.length; ++i) {
+            if (likes[i].cuisine == 'Italian' && likes[i].health_score >= average_health_score) {
+                foodMatch = likes[i]
+                foodData[0] = foodMatch
+            }
+        }
+    }
+    else if (favoriteCuisine == 'German') {
+        for (let i = 0; i < likes.length; ++i) {
+            if (likes[i].cuisine == 'German' && likes[i].health_score >= average_health_score) {
+                foodMatch = likes[i]
+                foodData[0] = foodMatch
+            }
+        }
+    }
+    else if (favoriteCuisine == 'Chinese') {
+        for (let i = 0; i < likes.length; ++i) {
+            if (likes[i].cuisine == 'Chinese' && likes[i].health_score >= average_health_score) {
+                foodMatch = likes[i]
+                foodData[0] = foodMatch
+            }
+        }
+    }
 
     /*
 
