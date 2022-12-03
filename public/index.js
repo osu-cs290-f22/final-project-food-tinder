@@ -25,6 +25,9 @@ dislikeButton.addEventListener("click", function () {
                 alert("Not enough data to calculate results!")
 
             }
+            else {
+                window.location.href = "/results"
+            }
 
         })
 
