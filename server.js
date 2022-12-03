@@ -38,14 +38,12 @@ app.get("/results", function (req, res, next) {
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
     let likedCuisineArr = []
-    for (let i = 0; i < foodData.length; ++i) {
-        console.log(foodData[i]);
-        if (foodData[i].name == likes[i].name) {
-            //parse through to read health score and add it to an array
-            healthScoreArr.push(foodData[i].health_score)
-            //read most liked cuisine and add it to a different array
-            likedCuisineArr.push(foodData[i].cuisine)
-        }
+    for (let i = 0; i < likes.length; ++i) {
+        console.log(foodData[likes[i]]);
+        //parse through to read health score and add it to an array
+        healthScoreArr.push(foodData[likes[i]].health_score)
+        //read most liked cuisine and add it to a different array
+        likedCuisineArr.push(foodData[likes[i]].cuisine)
     }   
     //for loop to go through the healthscore arr and add to a sum
     let sum; 
