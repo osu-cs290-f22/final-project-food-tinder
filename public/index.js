@@ -16,7 +16,20 @@ dislikeButton.addEventListener("click", function () {
 
     } else {
 
-        window.location.href = "/results"
+        //window.location.href = "/results"
+        fetch("/results").then(function(res) {
+
+            if (res.status !== 200) {
+
+                //window.location.href = cardIdx
+                alert("Not enough data to calculate results!")
+
+            }
+            else {
+                window.location.href = "/results"
+            }
+
+        })
 
     }
 
@@ -26,7 +39,19 @@ var resultsButton = document.getElementById("results-button")
 resultsButton.addEventListener("click", function () {
 
     // navigate to results page on click of results button
-    window.location.href = "/results"
+    fetch("/results").then(function(res) {
+
+        if (res.status !== 200) {
+
+            alert("Not enough data to calculate results!")
+
+        } else {
+
+            window.location.href = "/results"
+
+        }
+
+    })
     
 })
 
@@ -40,15 +65,19 @@ function likeClickHandler() {
     // put that index in a JSON object
     var reqBody = {
 
-        "cardIndex": cardIdx
+        cardIndex: cardIdx
 
     }
 
     // send a POST request containing that index to the server
-    var request = new XMLHttpRequest()
-    request.open("POST", "/post/liked", true)
-    request.setRequestHeader("Content-Type", "application/json")
-    request.send(JSON.stringify(reqBody))
+    fetch("/post/liked", {
+        method: "POST",
+        body: JSON.stringify(reqBody), 
+        headers: {
+            "Content-Type": "application/json"
+        }
+    
+    })
 
     // again, navigate to results if the end is reached
     if (cardIdx < 14) {
@@ -57,7 +86,19 @@ function likeClickHandler() {
 
     } else {
 
-        window.location.href = "/results"
+        fetch("/results").then(function(res) {
+
+            if (res.status !== 200) {
+
+                alert("Not enough data to calculate results!")
+                
+            } else {
+
+                window.location.href = "/results"
+
+            }
+
+        })
 
     }
 
