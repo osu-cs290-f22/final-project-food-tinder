@@ -24,7 +24,11 @@ app.use(express.static("public/"))
 app.use(express.json()) // generate and register a middleware function with our server
 
 app.get("/", function (req, res, next) {
+    res.status(200).render('instructions')
+    console.log("Going to cards")
+})
 
+app.post("/cardsGo", function (req, res, next) {
     res.redirect("/cards/0")
 })
 
@@ -214,15 +218,16 @@ app.get("/cards/:card", function(req, res, next){
 
     var cardIdx = req.params.card
     console.log("  -- GET: /cards/" + cardIdx)
-
+    
     if (cardIdx >= 0 && cardIdx < 15) { // max index is 14
 
         var singleCard = []
         singleCard[0] = foodData[req.params.card]
+      
         res.status(200).render('foodPage', {
     
-            foodCards: singleCard // only render single card
-    
+            foodCards: singleCard,// only render single card
+            
         })
 
     } else { // otherwise 404

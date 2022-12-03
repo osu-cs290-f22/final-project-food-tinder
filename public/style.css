@@ -208,12 +208,12 @@ button:hover{
 }
 
 #modal-close {
-    position: absolute;
-    right: 10px;
-    top: 5px;
+    position: relative;
+    /* right: 10px;
+    top: 5px; */
     font-size: 24px;
     border: none;
-    background: none;
+    background: purple;
     padding: 0;
     cursor: pointer;
 }
