@@ -44,7 +44,7 @@ app.get("/results", function (req, res, next) {
     } 
 
     // write likes to allLikes, possibly implement scoreboard/recent likes
-    
+    fs.writeFile("./allLikes.json", likes)
 
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
