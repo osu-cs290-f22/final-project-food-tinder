@@ -2,7 +2,7 @@ var express = require("express")
 var exphbs = require("express-handlebars")
 var fs = require("fs")
 var foodData = require("./food-objects.json")
-var allLikes = require("./likes.json")
+var allResults = require("./allResults.json") // store people's food matches
 var likes = []
 var port = process.env.PORT || 3001
 
@@ -27,24 +27,26 @@ app.use(express.json()) // generate and register a middleware function with our 
 
 app.get("/", function (req, res, next) {
 
+    likes.length = 0 // when visiting home page, likes reset
     res.redirect("/cards/0")
 })
 
 app.get("/results", function (req, res, next) {
+
+    // derfault foodMatch is N/A
+    var foodMatch = {
+        img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+        name: "Your Best Food Match is Nothing!",
+        health_score: "N/A",
+        cuisine: "N/A",
+        prev_name: getPrevName()
+    }
+
     if (likes.length == 0) {
-        //Works but can replace with special case N/A object
-       let foodMatch = {
-            img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
-            name: "Your Best Food Match is Nothing!",
-            health_score: "N/A",
-            cuisine: "N/A"
-        }
+        storeMatch(foodMatch)
         res.status(200).render('results', foodMatch)
         return;
     } 
-
-    // write likes to allLikes, possibly implement scoreboard/recent likes
-    fs.writeFile("./allLikes.json", likes)
 
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
@@ -108,7 +110,6 @@ app.get("/results", function (req, res, next) {
         console.log("  --Most Liked Cuisine is Chinese")
     }
     //3. whichever count variable is the most liked cuisine and closest to the average health score will get placed in foodData[0]
-    let foodMatch;
     if (favoriteCuisine == 'American') {
         for (let i = 0; i < likes.length; ++i) {
             if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
@@ -118,6 +119,7 @@ app.get("/results", function (req, res, next) {
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -132,6 +134,7 @@ app.get("/results", function (req, res, next) {
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -146,6 +149,7 @@ app.get("/results", function (req, res, next) {
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -160,6 +164,7 @@ app.get("/results", function (req, res, next) {
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -174,6 +179,7 @@ app.get("/results", function (req, res, next) {
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -222,3 +228,33 @@ app.listen(port, function(err) {
         throw err
     console.log("-- Server listening on port", port)
 })
+
+
+// helper function
+function storeMatch (foodMatch) {
+
+    // write likes to allResults, possibly implement scoreboard/recent likes
+    fs.readFile("./allResults.json", function (err, data) {
+
+        allResults = JSON.parse(data)
+        allResults.push(foodMatch)
+        setTimeout(function () {
+            fs.writeFile("./allResults.json", JSON.stringify(allResults), function (err) {})},
+            300) // 300 ms delay, otherwise this all happens too fast and writes to the file twice essentially
+
+    })
+
+} 
+
+function getPrevName () {
+
+    var file = fs.readFileSync("./allResults.json", {
+
+        encoding: "utf-8",
+        flag: "r"
+
+    })
+    var json = JSON.parse(file)
+    var lastElement = json[json.length - 2]
+    return lastElement.name
+}
