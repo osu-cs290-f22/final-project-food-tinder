@@ -1,7 +1,9 @@
 var express = require("express")
 var exphbs = require("express-handlebars")
+var fs = require("fs")
 var foodData = require("./food-objects.json")
-var likes = [] // this could be a json file, but right now we have no need to store likes permanently
+var allLikes = require("./likes.json")
+var likes = []
 var port = process.env.PORT || 3001
 
 var app = express()
@@ -40,6 +42,10 @@ app.get("/results", function (req, res, next) {
         res.status(200).render('results', foodMatch)
         return;
     } 
+
+    // write likes to allLikes, possibly implement scoreboard/recent likes
+    
+
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
     let likedCuisineArr = []
@@ -173,32 +179,6 @@ app.get("/results", function (req, res, next) {
             }
         }
     }
-
-    /*
-
-    Here (or in another function), a procedure to generate results needs to be written. Based
-    on the indices stored in the likes[] array, the following needs to be calculated:
-
-    1. Average health score
-    2. Most liked cuisine
-    3. Best match food overall
-
-    Luke, it's up to you how you calculate the best food overall. The resulting object needs 
-    to be rendered in place of foodData[0] below. 
-
-    Note that /results is rendered in both of the cases:
-    
-    1. The user clicks through all 15 food cards
-    2. The Get Results button is clicked at any time
-
-    Since the user can get results at any time, you may need a default object or something to 
-    do in case the likes array is empty. 
-    
-    Let me know if you have questions!
-
-    - Ellie
-
-    */ 
 })
 
 app.post("/post/liked", function(req, res, next) {
