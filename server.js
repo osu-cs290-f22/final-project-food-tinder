@@ -117,7 +117,8 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
                 storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
@@ -132,7 +133,8 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
                 storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
@@ -147,7 +149,8 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
                 storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
@@ -162,7 +165,8 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
                 storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
@@ -177,7 +181,8 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
                 storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
@@ -248,13 +253,8 @@ function storeMatch (foodMatch) {
 
 function getPrevName () {
 
-    var file = fs.readFileSync("./allResults.json", {
-
-        encoding: "utf-8",
-        flag: "r"
-
-    })
+    var file = fs.readFileSync("./allResults.json")
     var json = JSON.parse(file)
-    var lastElement = json[json.length - 2]
+    var lastElement = json[json.length - 1]
     return lastElement.name
 }

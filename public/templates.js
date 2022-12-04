@@ -28,8 +28,8 @@ templates['recents.hbs'] = template({"compiler":[8,">= 4.3.0"],"main":function(c
         return undefined
     };
 
-  return "<div class=\"results\">\r\n\r\n    <h3 id=\"recent-match\">Last user's match:</h3>\r\n    <p>"
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"prev_name") || (depth0 != null ? lookupProperty(depth0,"prev_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"prev_name","hash":{},"data":data,"loc":{"start":{"line":4,"column":7},"end":{"line":4,"column":20}}}) : helper)))
+  return "<div class=\"recent-div\">\r\n\r\n    <h3 id=\"recent-match-header\">Last user's match:</h3>\r\n    <p id = \"recent-match\">"
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"prev_name") || (depth0 != null ? lookupProperty(depth0,"prev_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"prev_name","hash":{},"data":data,"loc":{"start":{"line":4,"column":27},"end":{"line":4,"column":40}}}) : helper)))
     + "!!</p>\r\n\r\n</div>";
 },"useData":true});
 })();
