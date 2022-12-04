@@ -1,4 +1,4 @@
-console.log("Brielle was here!!!!!!!!!")
+
 
 var closeButton = document.getElementById("modal-close")
 if(closeButton){

@@ -226,7 +226,7 @@ app.get("/cards/:card", function(req, res, next){
       
         res.status(200).render('foodPage', {
     
-            foodCards: singleCard,// only render single card
+            foodCards: singleCard// only render single card
             
         })
 
