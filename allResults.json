@@ -453,5 +453,13 @@
     "cuisine": "American",
     "prev_name": "Your Best Food Match is Nothing!",
     "_locals": {}
+  },
+  {
+    "img_url": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p.jpg",
+    "name": "Hamburger",
+    "health_score": "5.00",
+    "cuisine": "American",
+    "prev_name": "Hamburger",
+    "_locals": {}
   }
 ]
