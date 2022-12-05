@@ -1,6 +1,5 @@
 var closeButton = document.getElementById("modal-close")
 if(closeButton){
-
 closeButton.addEventListener("click", function (){
     fetch("/cardsGo", {
 
