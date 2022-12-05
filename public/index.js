@@ -7,10 +7,9 @@ closeButton.addEventListener("click", function (){
 
     }).then(function(res){
         window.location.href = "/cards/0"
-        console.log("go")
     })
 })
-} else (console.log("bruh"))
+}
 
 
 var likeButton = document.getElementById("like-button")
