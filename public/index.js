@@ -1,7 +1,30 @@
+
+
+var closeButton = document.getElementById("modal-close")
+if(closeButton){
+
+closeButton.addEventListener("click", function (){
+    fetch("/cardsGo", {
+
+        method: "POST"
+
+    }).then(function(res){
+        window.location.href = "/cards/0"
+    })
+})
+}
+
+
 var likeButton = document.getElementById("like-button")
-likeButton.addEventListener("click", likeClickHandler)
+if(likeButton){
+    likeButton.addEventListener("click", likeClickHandler)
+}  
+
+
+
 
 var dislikeButton = document.getElementById("dislike-button")
+if(dislikeButton){
 dislikeButton.addEventListener("click", function () {
 
     // pull current card index from the URL (solution courtesy of Jace)
@@ -34,8 +57,10 @@ dislikeButton.addEventListener("click", function () {
     }
 
 })
+}
 
 var resultsButton = document.getElementById("results-button")
+if(resultsButton){
 resultsButton.addEventListener("click", function () {
 
     // navigate to results page on click of results button
@@ -54,7 +79,7 @@ resultsButton.addEventListener("click", function () {
     })
     
 })
-
+}
 function likeClickHandler() {
 
     // again, pull current card index from the URL
