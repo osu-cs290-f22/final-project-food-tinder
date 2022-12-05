@@ -1,7 +1,7 @@
 body {
     margin: 0;
     width: 100vw;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif;
     background-color: #edecec;
 
 }
@@ -11,6 +11,7 @@ body {
     background-color: #b51204;
     color: #fdc782;
     font-size: 42px;
+    font-family: Montserrat;
     /* border-radius: 5px; */
 
 }
@@ -73,6 +74,7 @@ body {
 
 .food-name {
 
+    font-family: Montserrat;
     font-size: 24px;
     padding-left: 20px;
 
@@ -88,82 +90,133 @@ body {
 .food-box{
     display:flex;
     flex-direction: column;
-    max-width: 500px;
-    max-height: 700px;
-    background: rgb(180, 178, 178);
-    border: 5px, rgb(240, 176, 137); 
-    padding: 20px;
-    margin: 15px;
+    max-width: 575px;
+    max-height: 100vh;
+    background: #fdc782;
+    border: 5px, rgb(206, 93, 23); 
+    margin: 30px;
     margin-bottom: 0px;
-    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 15%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.food-name-box {
+    font-family: Montserrat;
+    font-size: 30px;
 }
 
 img {
     max-width: 100%;
-    max-height: 300px;
-    object-fit:cover;
+}
+
+.food-info-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 100%;
+    padding: 20px;
+    padding-top: 0;
 }
 
 .buttons{
     display: flex;
     flex-direction: row-reverse;
-    background: #ffe3be;
-    max-width: 540px;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    border-radius: 5px;
+    max-width: 550px;
+    margin: 40px;
 }
 
 #like-button{
-    margin: 10px;
     background: none;
     border:none;
+    padding: 30px;
+    background-color: #ee5e4b;;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    font-size: 100px;
+    height: 160px;
+    width: 160px;
 }
-#like-button:hover{
-    color: green;
+
+#like-button:hover, #like-button-focus:focus{
+    color: white;
+    font-size: 120px;
+    height: 180px;
+    width: 180px;
+    background-color: rgb(13, 255, 0);
+    margin: -10px;
 }
 
 #dislike-button{
-    margin:10px;
     background: none;
     border:none;
+    padding: 30px;
+    background-color:  #ee5e4b;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    font-size: 100px;
+    height: 160px;
+    width: 160px;
 }
 
-#dislike-button:hover{
-    color: rgb(221, 34, 34);
+#dislike-button:hover, #dislike-button-focus:focus{
+    color: white;
+    font-size: 120px;
+    height: 180px;
+    width: 180px;
+    background-color: rgb(255, 0, 0);
+    margin: -10px;
 }
 
-i{
-    font-size: 50px;
+#like-button i:hover, #dislike-button i:hover {
+    color: white;
 }
 
 button:hover{
     cursor: pointer;
 }
 
-.results-button-box{
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
-    width: 25%;
-    height: 100%;
-    background: rgb(134, 184, 231);
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-}
 #results-button{
-    margin:1px;
     background: none;
     border:none;
-}
-
-.error-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 150px;
+    height: 90px;
     align-items: center;
     justify-content: center;
-    font-size: 50px; 
+}
+
+.results-text {
+    margin-left: 15px;
+}
+
+.results-text h2{
+    font-family: Montserrat;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+}
+
+.results-button-box i {
+    position: relative;
+    font-size: 30px;
+}
+
+#results-button:hover {
+    color:rgba(255, 0, 0, 0.868)
+}
+
+#results-button:hover i {
+    left: 15px;
+}
+
+#results-button:hover .results-text h2 {
+    font-size: 45px;
 }
 
 .recent-div {
@@ -188,13 +241,13 @@ button:hover{
 }
 
 #instructions-modal{
-  width: auto;
-  max-width: 600px;
-  min-width: 350px;
-  min-height: 300px;
-  margin: 40px auto;
-  background-color: #fff;
-  border-radius: 15px;
+    width: auto;
+    max-width: 600px;
+    min-width: 350px;
+    min-height: 300px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 15px;
 }
 
 
@@ -206,9 +259,24 @@ button:hover{
 #modal-close {
     position:relative;
     font-size: 24px;
+    font-family: Montserrat;
     border: none;
     background: #fdc782;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 15px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+}
+
+#modal-close:hover {
+    background-color: white;
+    color: #ff9100;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px; 
 }

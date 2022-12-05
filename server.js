@@ -119,7 +119,7 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    name: foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine,
                     prev_name: getPrevName()
@@ -135,7 +135,7 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Mexican' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    name: foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine,
                     prev_name: getPrevName()
@@ -151,7 +151,7 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Italian' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    name: foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine,
                     prev_name: getPrevName()
@@ -167,7 +167,7 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'German' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    name: foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine,
                     prev_name: getPrevName()
@@ -183,7 +183,7 @@ app.get("/results", function (req, res, next) {
             if (foodData[likes[i]].cuisine == 'Chinese' && foodData[likes[i]].health_score >= average_health_score) {
                 foodMatch = {
                     img_url: foodData[likes[i]].img_url,
-                    name: "Your Best Food Match: " + foodData[likes[i]].name,
+                    name: foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
                     cuisine: favoriteCuisine,
                     prev_name: getPrevName()
@@ -249,7 +249,7 @@ function storeMatch (foodMatch) {
         allResults = JSON.parse(data)
         allResults.push(foodMatch)
         setTimeout(function () {
-            fs.writeFile("./allResults.json", JSON.stringify(allResults), function (err) {})},
+            fs.writeFile("./allResults.json", JSON.stringify(allResults, null, 2), function (err) {})},
             300) // 300 ms delay, otherwise this all happens too fast and writes to the file twice essentially
 
     })
