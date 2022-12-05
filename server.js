@@ -27,7 +27,6 @@ app.use(express.json()) // generate and register a middleware function with our 
 
 app.get("/", function (req, res, next) {
     res.status(200).render('instructions')
-    console.log("Going to cards")
     likes.length = 0 // when visiting home page, likes reset
 })
 

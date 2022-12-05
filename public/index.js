@@ -1,5 +1,3 @@
-
-
 var closeButton = document.getElementById("modal-close")
 if(closeButton){
 
@@ -10,18 +8,16 @@ closeButton.addEventListener("click", function (){
 
     }).then(function(res){
         window.location.href = "/cards/0"
+        console.log("go")
     })
 })
-}
+} else (console.log("bruh"))
 
 
 var likeButton = document.getElementById("like-button")
 if(likeButton){
     likeButton.addEventListener("click", likeClickHandler)
 }  
-
-
-
 
 var dislikeButton = document.getElementById("dislike-button")
 if(dislikeButton){
