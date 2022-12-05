@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "handlebars views/partials/foodCard.hbs -f public/foodCardTemplate.js",
+    "build": "handlebars views/partials/foodCard.hbs views/partials/recents.hbs -f public/templates.js",
     "prestart": "npm run build",
     "start": "node server.js"
   },

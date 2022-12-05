@@ -1,8 +1,5 @@
-
-
 var closeButton = document.getElementById("modal-close")
 if(closeButton){
-
 closeButton.addEventListener("click", function (){
     fetch("/cardsGo", {
 
@@ -19,9 +16,6 @@ var likeButton = document.getElementById("like-button")
 if(likeButton){
     likeButton.addEventListener("click", likeClickHandler)
 }  
-
-
-
 
 var dislikeButton = document.getElementById("dislike-button")
 if(dislikeButton){
@@ -45,7 +39,7 @@ dislikeButton.addEventListener("click", function () {
             if (res.status !== 200) {
 
                 //window.location.href = cardIdx
-                alert("Not enough data to calculate results!")
+                alert("Could not calculate results!")
 
             }
             else {
@@ -68,7 +62,7 @@ resultsButton.addEventListener("click", function () {
 
         if (res.status !== 200) {
 
-            alert("Not enough data to calculate results!")
+            alert("Could not calculate results!")
 
         } else {
 
@@ -115,7 +109,7 @@ function likeClickHandler() {
 
             if (res.status !== 200) {
 
-                alert("Not enough data to calculate results!")
+                alert("Could not calculate results!")
                 
             } else {
 

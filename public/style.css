@@ -166,15 +166,15 @@ button:hover{
     font-size: 50px; 
 }
 
+.recent-div {
 
-#modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    background-color: #fdc782;
+    padding: 5px;
+    border: #000000;
+    border-style: dashed;
 }
 
 #modal-body i{
@@ -205,7 +205,6 @@ button:hover{
 
 #modal-close {
     position:relative;
-
     font-size: 24px;
     border: none;
     background: #fdc782;

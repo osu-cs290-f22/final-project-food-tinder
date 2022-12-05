@@ -1,7 +1,9 @@
 var express = require("express")
 var exphbs = require("express-handlebars")
+var fs = require("fs")
 var foodData = require("./food-objects.json")
-var likes = [] // this could be a json file, but right now we have no need to store likes permanently
+var allResults = require("./allResults.json") // store people's food matches
+var likes = []
 var port = process.env.PORT || 3001
 
 var app = express()
@@ -25,25 +27,31 @@ app.use(express.json()) // generate and register a middleware function with our 
 
 app.get("/", function (req, res, next) {
     res.status(200).render('instructions')
-    console.log("Going to cards")
+    likes.length = 0 // when visiting home page, likes reset
 })
 
 app.post("/cardsGo", function (req, res, next) {
+
     res.redirect("/cards/0")
 })
 
 app.get("/results", function (req, res, next) {
+
+    // derfault foodMatch is N/A
+    var foodMatch = {
+        img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+        name: "Your Best Food Match is Nothing!",
+        health_score: "N/A",
+        cuisine: "N/A",
+        prev_name: getPrevName()
+    }
+
     if (likes.length == 0) {
-        //Works but can replace with special case N/A object
-       let foodMatch = {
-            img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
-            name: "Your Best Food Match is Nothing!",
-            health_score: "N/A",
-            cuisine: "N/A"
-        }
+        storeMatch(foodMatch)
         res.status(200).render('results', foodMatch)
         return;
     } 
+
     //1. for loop to iterate through the food data array
     let healthScoreArr = []
     let likedCuisineArr = []
@@ -106,7 +114,6 @@ app.get("/results", function (req, res, next) {
         console.log("  --Most Liked Cuisine is Chinese")
     }
     //3. whichever count variable is the most liked cuisine and closest to the average health score will get placed in foodData[0]
-    let foodMatch;
     if (favoriteCuisine == 'American') {
         for (let i = 0; i < likes.length; ++i) {
             if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
@@ -114,8 +121,10 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -128,8 +137,10 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -142,8 +153,10 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -156,8 +169,10 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
@@ -170,39 +185,15 @@ app.get("/results", function (req, res, next) {
                     img_url: foodData[likes[i]].img_url,
                     name: "Your Best Food Match: " + foodData[likes[i]].name,
                     health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine
+                    cuisine: favoriteCuisine,
+                    prev_name: getPrevName()
                 }
+                storeMatch(foodMatch)
                 res.status(200).render('results', foodMatch)
                 return;
             }
         }
     }
-
-    /*
-
-    Here (or in another function), a procedure to generate results needs to be written. Based
-    on the indices stored in the likes[] array, the following needs to be calculated:
-
-    1. Average health score
-    2. Most liked cuisine
-    3. Best match food overall
-
-    Luke, it's up to you how you calculate the best food overall. The resulting object needs 
-    to be rendered in place of foodData[0] below. 
-
-    Note that /results is rendered in both of the cases:
-    
-    1. The user clicks through all 15 food cards
-    2. The Get Results button is clicked at any time
-
-    Since the user can get results at any time, you may need a default object or something to 
-    do in case the likes array is empty. 
-    
-    Let me know if you have questions!
-
-    - Ellie
-
-    */ 
 })
 
 app.post("/post/liked", function(req, res, next) {
@@ -247,3 +238,28 @@ app.listen(port, function(err) {
         throw err
     console.log("-- Server listening on port", port)
 })
+
+
+// helper function
+function storeMatch (foodMatch) {
+
+    // write likes to allResults, possibly implement scoreboard/recent likes
+    fs.readFile("./allResults.json", function (err, data) {
+
+        allResults = JSON.parse(data)
+        allResults.push(foodMatch)
+        setTimeout(function () {
+            fs.writeFile("./allResults.json", JSON.stringify(allResults), function (err) {})},
+            300) // 300 ms delay, otherwise this all happens too fast and writes to the file twice essentially
+
+    })
+
+} 
+
+function getPrevName () {
+
+    var file = fs.readFileSync("./allResults.json")
+    var json = JSON.parse(file)
+    var lastElement = json[json.length - 1]
+    return lastElement.name
+}
