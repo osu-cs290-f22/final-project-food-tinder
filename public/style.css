@@ -195,6 +195,7 @@ img {
     justify-content: space-around;
     align-items: center;
     max-width: 550px;
+    max-height: auto;
     margin: 40px;
 }
 
@@ -207,6 +208,7 @@ img {
     font-size: 100px;
     height: 160px;
     width: 160px;
+    margin-bottom: 20px;
 }
 
 #like-button:hover, #like-button-focus:focus{
@@ -216,6 +218,8 @@ img {
     width: 180px;
     background: rgb(13, 255, 0);
     margin: -10px;
+    margin-bottom: 10px;
+
 }
 
 #dislike-button{
@@ -227,6 +231,7 @@ img {
     font-size: 100px;
     height: 160px;
     width: 160px;
+    margin-bottom: 20px;
 }
 
 #dislike-button:hover, #dislike-button-focus:focus{
@@ -236,6 +241,8 @@ img {
     width: 180px;
     background: rgb(255, 0, 0);
     margin: -10px;
+    margin-bottom: 10px;
+
 }
 
 #like-button i:hover, #dislike-button i:hover {
@@ -401,8 +408,10 @@ button:hover{
 
 #modal-close:hover, #modal-close:hover:before {
     background-color: white;
-    color: #ff9100;
+    color: #fdc782;
     animation: none;
+    padding: 15px;
+    bottom: 5px;
 }
 
 .error-container {
