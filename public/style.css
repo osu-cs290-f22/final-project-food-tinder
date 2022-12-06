@@ -257,18 +257,21 @@ button:hover{
 }
 
 #results-button{
-    background: none;
     border:none;
     display: flex;
-    flex-direction: row;
-    width: 150px;
-    height: 90px;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
-}
-
-.results-text {
-    margin-left: 15px;
+    height: 170px;
+    width: 260px;
+    border-top-left-radius: 90%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.85);
+    background: linear-gradient(50deg, #c10016, #f14227);
+ 
 }
 
 .results-text h2{
@@ -276,13 +279,18 @@ button:hover{
     font-size: 40px;
     margin: 0;
     padding: 0;
-    width: 300px;
+    width: 5px;
+    position: absolute;
+    left: 70px;
+    bottom: 20px;
 }
 
 .results-button-box i {
-    position: relative;
-    font-size: 20px;
-    animation: mover 1s infinite alternate;
+    position: absolute;
+    right: 75px;
+    bottom: 77px;
+    font-size: 30px;
+    /* animation: mover 1s infinite alternate; */
 }
 
 @keyframes mover {
@@ -290,17 +298,21 @@ button:hover{
     100% { transform: translateY(-10px); }
 }
 
-#results-button:hover, #results-button:hover i {
-    color:rgba(255, 0, 0, 0.868);
+#results-button:hover {
     animation: none;
+    height: 180px;
+    width: 270px;
+    color: white;
+    background: linear-gradient(50deg, #fc011fdc, #ff8b8be2);
 }
 
 #results-button:hover i {
-    left: 15px;
+    font-size: 40px;
+    right: 60px;
+    bottom: 72px;
 }
 
-#results-button:hover .results-text h2 {
-    font-size: 45px;
+#results-button:hover .results-text h2, #results-button:hover i {
     animation: wiggle 2s infinite;
 }
 

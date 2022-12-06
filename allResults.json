@@ -1,2 +1,178 @@
 [
+  {
+    "img_url": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p.jpg",
+    "name": "Hamburger",
+    "health_score": "4.67",
+    "cuisine": "American",
+    "prev_name": null,
+    "_locals": {}
+  },
+  {
+    "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
+    "name": "Spaghetti",
+    "health_score": "5.40",
+    "cuisine": "Italian",
+    "prev_name": "Hamburger",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg",
+    "name": "Salad",
+    "health_score": "9.00",
+    "cuisine": "Chinese",
+    "prev_name": "Spaghetti",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://www.tastingtable.com/img/gallery/15-ingredients-that-will-seriously-elevate-your-steak/intro-1663169111.webp",
+    "name": "Steak",
+    "health_score": "5.75",
+    "cuisine": "American",
+    "prev_name": "Salad",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
+    "name": "Spaghetti",
+    "health_score": "5.67",
+    "cuisine": "Italian",
+    "prev_name": "Steak",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://www.budgetbytes.com/wp-content/uploads/2010/03/Southern-Style-Potato-Salad-above.jpg",
+    "name": "Potato Salad",
+    "health_score": "5.75",
+    "cuisine": "German",
+    "prev_name": "Spaghetti",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://images.kitchenstories.io/recipeImages/34_02_RusticGermanBread_TitlePicture.jpg",
+    "name": "Bread",
+    "health_score": "4.67",
+    "cuisine": "German",
+    "prev_name": "Potato Salad",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Bread",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/5FQQ3BDGGQI6XOVYOB7YO2OXQU.jpg&w=1440",
+    "name": "Dumplings",
+    "health_score": "8.00",
+    "cuisine": "Chinese",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://st.depositphotos.com/1529768/1320/i/600/depositphotos_13203117-stock-photo-chicken-chow-mein.jpg",
+    "name": "Chow Mein",
+    "health_score": "5.00",
+    "cuisine": "Chinese",
+    "prev_name": "Dumplings",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Chow Mein",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/5FQQ3BDGGQI6XOVYOB7YO2OXQU.jpg&w=1440",
+    "name": "Dumplings",
+    "health_score": "6.00",
+    "cuisine": "Chinese",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Dumplings",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
+    "name": "Nothing!",
+    "health_score": "N/A",
+    "cuisine": "N/A",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://www.tastingtable.com/img/gallery/15-ingredients-that-will-seriously-elevate-your-steak/intro-1663169111.webp",
+    "name": "Steak",
+    "health_score": "6.00",
+    "cuisine": "American",
+    "prev_name": "Nothing!",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
+    "name": "Tacos",
+    "health_score": "8.00",
+    "cuisine": "Mexican",
+    "prev_name": "Steak",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
+    "name": "Spaghetti",
+    "health_score": "10.00",
+    "cuisine": "Italian",
+    "prev_name": "Tacos",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Lasagna_%281%29.jpg",
+    "name": "Lasagna",
+    "health_score": "2.50",
+    "cuisine": "Italian",
+    "prev_name": "Spaghetti",
+    "_locals": {}
+  }
 ]
