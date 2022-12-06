@@ -16,5 +16,7 @@
             <p class="cuisine-result">Most Liked Cuisine: {{cuisine}}</p>
         </div>
     </div>
-    {{> recents}}
+    {{#if prev_name}}
+        {{> recents}}
+    {{/if}}
 </main>

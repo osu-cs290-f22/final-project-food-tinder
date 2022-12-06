@@ -260,6 +260,9 @@ function getPrevName () {
 
     var file = fs.readFileSync("./allResults.json")
     var json = JSON.parse(file)
-    var lastElement = json[json.length - 1]
-    return lastElement.name
+    if (json.length !== 0) {
+        var lastElement = json[json.length - 1]
+        return lastElement.name
+    }
+    return null
 }
