@@ -40,7 +40,7 @@ app.get("/results", function (req, res, next) {
     // derfault foodMatch is N/A
     var foodMatch = {
         img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
-        name: "Your Best Food Match is Nothing!",
+        name: "Nothing!",
         health_score: "N/A",
         cuisine: "N/A",
         prev_name: getPrevName()
