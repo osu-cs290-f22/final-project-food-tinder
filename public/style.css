@@ -307,8 +307,8 @@ button:hover{
 .recent-div {
 
     position: absolute;
-    top: 15px;
-    right: 5px;
+    top: 20px;
+    right: 10px;
     background-color: #fdc782;
     color: rgb(50, 50, 50);
     padding: 10px;
@@ -320,8 +320,15 @@ button:hover{
     border-radius: 30px;
 }
 
+#recent-match-header {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 #recent-match {
     font-size: 30px;
+    padding: 0;
     margin: 0;
 }
 
