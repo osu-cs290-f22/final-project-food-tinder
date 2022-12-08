@@ -3,10 +3,21 @@
 {{/section}}
 
 <main id="results-main-box">
-    <h2 id="your-results">Your Results: Best Match</h2>
-    <img src={{img_url}} alt={{name}}>
-    <h3 class="food-name">{{name}}</h3>
-    <p class="health-score-text">Average Health Score: {{health_score}}</p>
-    <p class="cuisine-text">Most Liked Cuisine: {{cuisine}}</p>
-    {{> recents}}
+    <div class="results-img-box">
+        <img src={{img_url}} alt={{name}}>
+    </div>
+    <div class="results-info-box">
+        <div class="results-header-box">
+            <h2 id="results-title">Your Best Food Match Is:</h2>
+            <h3 class="food-name-result">{{name}}</h3>
+        </div>
+        <div class="results-other-info-box">
+            <p class="health-score-result">Average Health Score: {{health_score}}</p>
+            <p class="cuisine-result">Most Liked Cuisine: {{cuisine}}</p>
+        </div>
+    </div>
 </main>
+
+{{#if prev_name}}
+    {{> recents}}
+{{/if}}

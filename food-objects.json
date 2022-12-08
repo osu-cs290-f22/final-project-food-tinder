@@ -6,7 +6,7 @@
         "cuisine": "American"
     },
     {
-        "img_url": "https://natashaskitchen.com/wp-content/uploads/2020/03/Pan-Seared-Steak-4.jpg",
+        "img_url": "https://www.tastingtable.com/img/gallery/15-ingredients-that-will-seriously-elevate-your-steak/intro-1663169111.webp",
         "name": "Steak",
         "health_score": 9,
         "cuisine": "American"
@@ -30,13 +30,13 @@
         "cuisine": "Mexican"
     },
     {
-        "img_url": "https://st.depositphotos.com/1022214/2138/i/950/depositphotos_21382401-stock-photo-porras-thick-churros-typical-of.jpg",
+        "img_url": "https://www.biggerbolderbaking.com/wp-content/uploads/2015/04/BBB69-Churros-Chocolate-Thumbnail-v.1.jpg",
         "name": "Churros",
         "health_score": 5,
         "cuisine": "Mexican"
     },
     {
-        "img_url": "https://clipartix.com/wp-content/uploads/2018/03/spaghetti-clipart-2018-12.jpg",
+        "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
         "name": "Spaghetti",
         "health_score": 10,
         "cuisine": "Italian"
@@ -48,7 +48,7 @@
         "cuisine": "Italian"
     },
     {
-        "img_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Pepperoni_pizza_2.jpg",
+        "img_url": "https://www.gilde.no/assets/images/_heroimage/Pepperoni-skinke-pizza-44738_1-1.jpg",
         "name": "Pizza",
         "health_score": 2,
         "cuisine": "Italian"
@@ -66,13 +66,13 @@
         "cuisine": "German"
     },
     {
-        "img_url": "https://images.squarespace-cdn.com/content/v1/5b688ded9d5abb4e2e5dc1ab/1616696934199-5P69506JT1XSC12ALZY5/NW+classic+german+potato+salad+image.jpg",
+        "img_url": "https://www.budgetbytes.com/wp-content/uploads/2010/03/Southern-Style-Potato-Salad-above.jpg",
         "name": "Potato Salad",
         "health_score": 7,
         "cuisine": "German"
     },
     {
-        "img_url": "https://kirbiecravings.com/wp-content/uploads/2020/01/jiaozi-dumplings-12.jpg",
+        "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/5FQQ3BDGGQI6XOVYOB7YO2OXQU.jpg&w=1440",
         "name": "Dumplings",
         "health_score": 8,
         "cuisine": "Chinese"
@@ -84,7 +84,7 @@
         "cuisine": "Chinese"
     },
     {
-        "img_url": "https://www.smalltownwoman.com/wp-content/uploads/2021/04/Chinese-Chicken-Salad-Recipe-Card-1.jpg",
+        "img_url": "https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg",
         "name": "Salad",
         "health_score": 10,
         "cuisine": "Chinese"
