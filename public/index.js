@@ -1,16 +1,11 @@
 var closeButton = document.getElementById("modal-close")
 if(closeButton){
 closeButton.addEventListener("click", function (){
-    fetch("/cardsGo", {
-
-        method: "POST"
-
-    }).then(function(res){
+    // fetch("/cardsGo").then(function(res){
         window.location.href = "/cards/0"
-    })
+    // })
 })
 }
-
 
 var likeButton = document.getElementById("like-button")
 if(likeButton){
@@ -26,29 +21,31 @@ dislikeButton.addEventListener("click", function () {
     var lastSlashIdx = url.lastIndexOf("/")
     var cardIdx = parseInt(url.substring(lastSlashIdx + 1))
 
-    // if the index is greater than the number of cards, auto naviagate to results
-    if (cardIdx < 14) {
+    window.location.href = cardIdx + 1
 
-        window.location.href = cardIdx + 1
+    // // if the index is greater than the number of cards, auto naviagate to results
+    // if (cardIdx < 14) {
 
-    } else {
+    //     window.location.href = cardIdx + 1
 
-        //window.location.href = "/results"
-        fetch("/results").then(function(res) {
+    // } else {
 
-            if (res.status !== 200) {
+    //     //window.location.href = "/results"
+    //     fetch("/results").then(function(res) {
 
-                //window.location.href = cardIdx
-                alert("Could not calculate results!")
+    //         if (res.status !== 200) {
 
-            }
-            else {
-                window.location.href = "/results"
-            }
+    //             //window.location.href = cardIdx
+    //             alert("Could not calculate results!")
 
-        })
+    //         }
+    //         else {
+    //             window.location.href = "/results"
+    //         }
 
-    }
+    //     })
+
+    // }
 
 })
 }
@@ -98,27 +95,29 @@ function likeClickHandler() {
     
     })
 
-    // again, navigate to results if the end is reached
-    if (cardIdx < 14) {
+    window.location.href = cardIdx + 1
 
-        window.location.href = cardIdx + 1
+    // // again, navigate to results if the end is reached
+    // if (cardIdx < 14) {
 
-    } else {
+    //     window.location.href = cardIdx + 1
 
-        fetch("/results").then(function(res) {
+    // } else {
 
-            if (res.status !== 200) {
+    //     fetch("/results").then(function(res) {
 
-                alert("Could not calculate results!")
+    //         if (res.status !== 200) {
+
+    //             alert("Could not calculate results!")
                 
-            } else {
+    //         } else {
 
-                window.location.href = "/results"
+    //             window.location.href = "/results"
 
-            }
+    //         }
 
-        })
+    //     })
 
-    }
+    // }
 
 }

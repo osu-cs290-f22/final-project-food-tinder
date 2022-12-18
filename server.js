@@ -28,12 +28,18 @@ app.use(express.json()) // generate and register a middleware function with our 
 app.get("/", function (req, res, next) {
     res.status(200).render('instructions')
     likes.length = 0 // when visiting home page, likes reset
+    foodData = shuffle(foodData)
+    fs.writeFile(
+        './food-objects.json',
+        JSON.stringify(foodData, null, 2),
+        function (err) {}
+    )
 })
 
-app.post("/cardsGo", function (req, res, next) {
+// app.get("/cardsGo", function (req, res, next) {
 
-    res.redirect("/cards/0")
-})
+//     res.redirect("/cards/0")
+// })
 
 app.get("/results", function (req, res, next) {
 
@@ -210,10 +216,10 @@ app.get("/cards/:card", function(req, res, next){
     var cardIdx = req.params.card
     console.log("  -- GET: /cards/" + cardIdx)
     
-    if (cardIdx >= 0 && cardIdx < 15) { // max index is 14
+    if (cardIdx >= 0 && cardIdx < foodData.length) { 
 
         var singleCard = []
-        singleCard[0] = foodData[req.params.card]
+        singleCard[0] = foodData[cardIdx]
       
         res.status(200).render('foodPage', {
     
@@ -221,6 +227,10 @@ app.get("/cards/:card", function(req, res, next){
             
         })
 
+    } else if (cardIdx == foodData.length) {
+
+        res.redirect("/results")
+    
     } else { // otherwise 404
 
         next()
@@ -260,9 +270,20 @@ function getPrevName () {
 
     var file = fs.readFileSync("./allResults.json")
     var json = JSON.parse(file)
-    if (json.length !== 0) {
+    if (json.length > 0) {
         var lastElement = json[json.length - 1]
         return lastElement.name
     }
     return null
+}
+
+function shuffle(sourceArray) {
+    for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+    }
+    return sourceArray;
 }
