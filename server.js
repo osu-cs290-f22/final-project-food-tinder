@@ -76,7 +76,7 @@ app.get("/results", function (req, res, next) {
     console.log("  --LikedCuisineArr: ", likedCuisineArr)
 
     //find max cuisine type
-    var maxCuisine = mode(likedCuisineArr)
+    var maxCuisine = mode(likedCuisineArr).toLowerCase()
     var foodMatchIdx // will store best match (as idx of foodData)
     var minDiff = 10 // will store food elem that deviates the least from the avg healthscore
 
@@ -85,7 +85,7 @@ app.get("/results", function (req, res, next) {
 
         var foodElem = foodData[likes[i]] // current food elem
 
-        if (foodElem.cuisine == maxCuisine) {
+        if (foodElem.cuisine.toLowerCase() == maxCuisine) {
 
             // calc difference from avg health score
             var temp = Math.abs(foodElem.health_score - average_health_score)
@@ -107,7 +107,7 @@ app.get("/results", function (req, res, next) {
         img_url: foodData[foodMatchIdx].img_url,
         name: foodData[foodMatchIdx].name,
         health_score: Number.parseFloat(average_health_score).toFixed(2),
-        cuisine: maxCuisine,
+        cuisine: foodData[foodMatchIdx].cuisine,
         prev_name: getPrevName()
     }
 
@@ -134,26 +134,40 @@ app.post('/post/add', function (req, res, next) {
         req.body.health_score && 
         req.body.cuisine) 
     {
-        var foodObj = {
-            img_url: req.body.img_url,
-            name: req.body.name,
-            health_score: req.body.health_score,
-            cuisine: req.body.cuisine
+        var exists = false
+
+        for (var i = 0; i < foodData.length; i++) {
+            if (foodData[i].name.toLowerCase() == req.body.name.toLowerCase()) {
+                exists = true
+            }
         }
 
-        foodData.push(foodObj)
-
-        fs.writeFile(
-            './food-objects.json',
-            JSON.stringify(foodData, null, 2),
-            function (err) {
-                if (err) {
-                    res.status(500).send("Error writing food to DB")
-                } else {
-                    res.status(200).send("Food successfully added!!")
-                }
+        if (exists) {     
+            res.status(409).send("Food obj already exists!!")
+        
+        } else {
+            var foodObj = {
+                img_url: req.body.img_url,
+                name: req.body.name,
+                health_score: req.body.health_score,
+                cuisine: req.body.cuisine
             }
-        )
+
+            foodData.push(foodObj)
+
+            fs.writeFile(
+                './food-objects.json',
+                JSON.stringify(foodData, null, 2),
+                function (err) {
+                    if (err) {
+                        res.status(500).send("Error writing food to DB")
+                    } else {
+                        res.status(200).send("Food successfully added!!")
+                    }
+                }
+            )
+        }
+
     } else {
         res.status(400).send("Request didn't have a body!")
     }
@@ -247,13 +261,13 @@ function mode(array) {
 
     // use hash to store elem and frequency as key-val pairs
     var modeMap = {};
-    var maxElem = array[0], maxCount = 1;
+    var maxElem = array[0].toLowerCase(), maxCount = 1;
 
     // iterate thru arr elems
     for (var i = 0; i < array.length; i++) {
 
         // current elem
-        var elem = array[i];
+        var elem = array[i].toLowerCase();
 
         // if elem is not in map, add elem as key and assign 1 as initial val
         if (modeMap[elem] == null)

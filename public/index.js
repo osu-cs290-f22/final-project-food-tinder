@@ -78,6 +78,11 @@ function handleModalAccept() {
                 "Content-Type": "application/json"
             }
 
+        }).then(function(res) {
+            if (res.status == 409) {
+                alert("A food with that name already exists! Please enter a new food item.")
+            }
+
         }).catch(function (err) {
             alert("An error occurred communicating with the server: " + err)
         })
