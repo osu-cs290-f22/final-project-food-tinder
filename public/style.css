@@ -98,7 +98,7 @@ main {
     background-color: rgba(255, 255, 255, 0.3);
     width: 350px;
     height: 200%;
-    left: -100%;
+    left: -130%;
     transform: skewX(-30deg);
 }
 
@@ -175,7 +175,8 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-height: 100vh;
+    /* max-height: 100vh; */
+    height: max-content;
     backface-visibility: hidden;
     border-radius: 15%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -207,18 +208,18 @@ main {
     background-color: rgba(255, 255, 255, 0.3);
     width: 170px;
     height: 200%;
-    left: -100%;
+    left: -130%;
     border-radius: 10%;
     transform: skewX(-30deg);
 }
 
 .food-box-front:hover:before {
-    animation: slide 1.75s;
+    animation: slide 2s;
 }
 
 @keyframes slide {
     0%, 100% {
-        left: -100%;
+        left: -130%;
     }
     50% {
         left: 110%
@@ -229,6 +230,10 @@ main {
     font-family: Montserrat;
     font-size: 30px;
 }
+
+/* .food-img-box img {
+    max-height: 72vh;
+} */
 
 img {
     max-width: 100%;
@@ -516,10 +521,10 @@ button:hover{
     height: 100%;
     border-radius: 10%;
     top: 0;
-    left: -100%;
+    left: -130%;
     border-radius: 10%;
     transform: skewX(-30deg);
-    animation: slide 2.5s infinite;
+    animation: slide 3s infinite;
 }
 
 #modal-start-button:hover, #modal-start-button:hover:before {
