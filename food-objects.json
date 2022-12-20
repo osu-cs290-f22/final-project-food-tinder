@@ -1,39 +1,9 @@
 [
   {
-    "img_url": "https://www.angsarap.net/wp-content/uploads/2014/12/Tempura-Wide.jpg",
-    "name": "Tempura",
-    "health_score": 3,
+    "img_url": "https://koloalandingresort.com/wp-content/uploads/2021/10/Best-Sushi.jpg",
+    "name": "Sushi",
+    "health_score": 10,
     "cuisine": "Japanese"
-  },
-  {
-    "img_url": "https://www.seriouseats.com/thmb/YwaJNJc7_TDAjdo8pzN_JElsgb4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__02__20210214-stovetop-mac-cheese-reshoot-vicky-wasik-9-0760b642ca704cf8b2c5121a363a60a2.jpg",
-    "name": "Mac and Cheese",
-    "health_score": 3,
-    "cuisine": "American"
-  },
-  {
-    "img_url": "https://drivemehungry.com/wp-content/uploads/2022/07/spam-musubi-8.jpg",
-    "name": "Spam Musubi",
-    "health_score": 4,
-    "cuisine": "Hawaiian"
-  },
-  {
-    "img_url": "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg",
-    "name": "Ramen",
-    "health_score": 5,
-    "cuisine": "Japanese"
-  },
-  {
-    "img_url": "https://assets.epicurious.com/photos/579f850ce4857f9f1047d0b0/master/w_1000,h_779,c_limit/chicken-enchiladas.jpg",
-    "name": "Enchiladas",
-    "health_score": 6,
-    "cuisine": "Mexican"
-  },
-  {
-    "img_url": "https://www.tastingtable.com/img/gallery/15-ingredients-that-will-seriously-elevate-your-steak/intro-1663169111.webp",
-    "name": "Steak",
-    "health_score": 9,
-    "cuisine": "American"
   },
   {
     "img_url": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p.jpg",
@@ -48,33 +18,57 @@
     "cuisine": "Chinese"
   },
   {
-    "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
-    "name": "Spaghetti",
+    "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
+    "name": "Tacos",
     "health_score": 10,
-    "cuisine": "Italian"
+    "cuisine": "Mexican"
   },
   {
-    "img_url": "https://carlsbadcravings.com/wp-content/uploads/2021/09/kalua-pork-9.jpg",
-    "name": "Kalua Pork",
-    "health_score": 8,
-    "cuisine": "Hawaiian"
+    "img_url": "https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg",
+    "name": "Salad",
+    "health_score": 10,
+    "cuisine": "Chinese"
   },
   {
-    "img_url": "https://www.seriouseats.com/thmb/zKq67u3TJ3B0wknpgyc-y8ymP3U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2013__11__20131112-turkey-weisswurst-recipe-34-ba385b3d5ab64d1786f45a7b39c20e8e.jpg",
-    "name": "Sausage",
-    "health_score": 1,
+    "img_url": "https://www.angsarap.net/wp-content/uploads/2014/12/Tempura-Wide.jpg",
+    "name": "Tempura",
+    "health_score": 3,
+    "cuisine": "Japanese"
+  },
+  {
+    "img_url": "https://images.kitchenstories.io/recipeImages/34_02_RusticGermanBread_TitlePicture.jpg",
+    "name": "Bread",
+    "health_score": 5,
     "cuisine": "German"
   },
   {
-    "img_url": "https://www.gilde.no/assets/images/_heroimage/Pepperoni-skinke-pizza-44738_1-1.jpg",
-    "name": "Pizza",
-    "health_score": 2,
-    "cuisine": "Italian"
+    "img_url": "https://www.seriouseats.com/thmb/YwaJNJc7_TDAjdo8pzN_JElsgb4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__02__20210214-stovetop-mac-cheese-reshoot-vicky-wasik-9-0760b642ca704cf8b2c5121a363a60a2.jpg",
+    "name": "Mac and Cheese",
+    "health_score": 3,
+    "cuisine": "American"
   },
   {
-    "img_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Lasagna_%281%29.jpg",
-    "name": "Lasagna",
-    "health_score": 4,
+    "img_url": "https://khinskitchen.com/wp-content/uploads/2022/06/pancit-bihon-10.jpg",
+    "name": "Pancit",
+    "health_score": 10,
+    "cuisine": "Filipino"
+  },
+  {
+    "img_url": "https://gttp.imgix.net/261495/x/0/",
+    "name": "Lechon",
+    "health_score": 2,
+    "cuisine": "Filipino"
+  },
+  {
+    "img_url": "https://www.tastingtable.com/img/gallery/15-ingredients-that-will-seriously-elevate-your-steak/intro-1663169111.webp",
+    "name": "Steak",
+    "health_score": 9,
+    "cuisine": "American"
+  },
+  {
+    "img_url": "https://i1.wp.com/smittenkitchen.com/wp-content/uploads//2019/03/perfect-spaghetti-and-meatballs.jpg?fit=1200%2C800&ssl=1",
+    "name": "Spaghetti",
+    "health_score": 10,
     "cuisine": "Italian"
   },
   {
@@ -84,16 +78,28 @@
     "cuisine": "Mexican"
   },
   {
+    "img_url": "https://images.aws.nestle.recipes/resized/597cb8c968f4893023f7ccdc96999aac_03_Homepage_Recipe_of_the_Day_944_531.jpg",
+    "name": "Pinakbet",
+    "health_score": 10,
+    "cuisine": "Filipino"
+  },
+  {
     "img_url": "https://www.carolynscooking.com/wp-content/uploads/2021/01/Poke-Bowl-18-2-500x500.jpg",
     "name": "Poke",
     "health_score": 9,
     "cuisine": "Hawaiian"
   },
   {
-    "img_url": "https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg",
-    "name": "Salad",
-    "health_score": 10,
-    "cuisine": "Chinese"
+    "img_url": "https://www.gilde.no/assets/images/_heroimage/Pepperoni-skinke-pizza-44738_1-1.jpg",
+    "name": "Pizza",
+    "health_score": 2,
+    "cuisine": "Italian"
+  },
+  {
+    "img_url": "https://carlsbadcravings.com/wp-content/uploads/2021/09/kalua-pork-9.jpg",
+    "name": "Kalua Pork",
+    "health_score": 8,
+    "cuisine": "Hawaiian"
   },
   {
     "img_url": "https://www.budgetbytes.com/wp-content/uploads/2010/03/Southern-Style-Potato-Salad-above.jpg",
@@ -102,21 +108,33 @@
     "cuisine": "German"
   },
   {
-    "img_url": "https://images.kitchenstories.io/recipeImages/34_02_RusticGermanBread_TitlePicture.jpg",
-    "name": "Bread",
-    "health_score": 5,
-    "cuisine": "German"
+    "img_url": "https://drivemehungry.com/wp-content/uploads/2022/07/spam-musubi-8.jpg",
+    "name": "Spam Musubi",
+    "health_score": 4,
+    "cuisine": "Hawaiian"
   },
   {
-    "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
-    "name": "Tacos",
-    "health_score": 10,
+    "img_url": "https://assets.epicurious.com/photos/579f850ce4857f9f1047d0b0/master/w_1000,h_779,c_limit/chicken-enchiladas.jpg",
+    "name": "Enchiladas",
+    "health_score": 6,
     "cuisine": "Mexican"
   },
   {
-    "img_url": "https://koloalandingresort.com/wp-content/uploads/2021/10/Best-Sushi.jpg",
-    "name": "Sushi",
-    "health_score": 10,
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Lasagna_%281%29.jpg",
+    "name": "Lasagna",
+    "health_score": 4,
+    "cuisine": "Italian"
+  },
+  {
+    "img_url": "https://www.seriouseats.com/thmb/zKq67u3TJ3B0wknpgyc-y8ymP3U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2013__11__20131112-turkey-weisswurst-recipe-34-ba385b3d5ab64d1786f45a7b39c20e8e.jpg",
+    "name": "Sausage",
+    "health_score": 1,
+    "cuisine": "German"
+  },
+  {
+    "img_url": "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg",
+    "name": "Ramen",
+    "health_score": 5,
     "cuisine": "Japanese"
   },
   {
@@ -124,5 +142,11 @@
     "name": "Dumplings",
     "health_score": 8,
     "cuisine": "Chinese"
+  },
+  {
+    "img_url": "https://www.thespruceeats.com/thmb/X_JGM04VusvkuGqTVan4QmBRqjI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-make-homemade-french-fries-2215971-hero-01-02f62a016f3e4aa4b41d0c27539885c3.jpg",
+    "name": "French Fries",
+    "health_score": 1,
+    "cuisine": "Belgian"
   }
 ]

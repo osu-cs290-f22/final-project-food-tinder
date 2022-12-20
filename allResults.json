@@ -1,2 +1,18 @@
 [
+  {
+    "img_url": "https://www.gilde.no/assets/images/_heroimage/Pepperoni-skinke-pizza-44738_1-1.jpg",
+    "name": "Pizza",
+    "health_score": "2.00",
+    "cuisine": "Italian",
+    "prev_name": null,
+    "_locals": {}
+  },
+  {
+    "img_url": "https://drivemehungry.com/wp-content/uploads/2022/07/spam-musubi-8.jpg",
+    "name": "Spam Musubi",
+    "health_score": "6.00",
+    "cuisine": "Hawaiian",
+    "prev_name": "Pizza",
+    "_locals": {}
+  }
 ]

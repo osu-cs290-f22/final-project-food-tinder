@@ -57,7 +57,7 @@ app.get("/results", function (req, res, next) {
     let healthScoreArr = []
     let likedCuisineArr = []
     for (let i = 0; i < likes.length; ++i) {
-        console.log(foodData[likes[i]]);
+        // console.log(foodData[likes[i]]);
         //parse through to read health score and add it to an array
         healthScoreArr.push(foodData[likes[i]].health_score)
         //read most liked cuisine and add it to a different array
@@ -66,17 +66,22 @@ app.get("/results", function (req, res, next) {
     //for loop to go through the healthscore arr and add to a sum
     let sum = 0; 
     for (let i = 0; i < healthScoreArr.length; ++i) {
-        console.log(healthScoreArr[i]) 
         sum += healthScoreArr[i]
     }
     //divide by the number of likes after the loop
     let average_health_score = sum / likes.length
     //average health score = sum
-    console.log("  --Average Health Score: ", average_health_score)
+    console.log("\n  --Average Health Score: ", average_health_score)
     console.log("  --LikedCuisineArr: ", likedCuisineArr)
 
-    //find max cuisine type
-    var maxCuisine = mode(likedCuisineArr).toLowerCase()
+    //find max cuisine(s) type and 
+    var maxCuisines = modeArr(likedCuisineArr)
+    var randIdx = Math.floor(Math.random() * maxCuisines.length)
+    var maxCuisine = maxCuisines[randIdx]
+
+    console.log("\n  --Max Cuisine Arr: ", maxCuisines)
+    console.log("  --Recommended Cuisine: ", maxCuisine)
+    
     var foodMatchIdx // will store best match (as idx of foodData)
     var minDiff = 10 // will store food elem that deviates the least from the avg healthscore
 
@@ -100,7 +105,7 @@ app.get("/results", function (req, res, next) {
         }
     }
 
-    console.log(minDiff, foodMatchIdx)
+    console.log("\n --minDiff: " + minDiff, " --foodMatchIdx: " + foodMatchIdx)
 
     // store results page context
     foodMatch = {
@@ -119,8 +124,30 @@ app.get("/results", function (req, res, next) {
 
 app.post("/post/liked", function(req, res, next) {
     
-    likes.push(req.body.cardIndex)
-    res.status(200).send("Added card index to the array")
+    if (likes.indexOf(req.body.cardIndex) == -1) {
+        likes.push(req.body.cardIndex)
+        res.status(200).send("Added card index to likes array")
+        console.log("\nAdded card index to likes array")
+
+    } else {
+        res.status(200).send("Card index has already been liked")
+        console.log("\nCard index has already been liked")
+    }
+
+    console.log(" -- POST: [" + likes + "]")
+
+})
+
+app.post("/post/disliked", function(req, res, next) {
+    
+    var cardIndex = likes.indexOf(req.body.cardIndex)
+
+    // if food has prev been liked, remove it from likes array
+    if (cardIndex != -1) {
+        likes.splice(cardIndex, 1)
+        res.status(200).send("Card index removed from likes array")
+        console.log("\nCard index removed from likes array")
+    }
 
     console.log(" -- POST: [" + likes + "]")
 
@@ -175,7 +202,7 @@ app.post('/post/add', function (req, res, next) {
 
 app.get("/cards/:card", function(req, res, next){
 
-    console.log(foodData.length)
+    console.log("\n --foodData length:", foodData.length)
     var cardIdx = req.params.card
     console.log("  -- GET: /cards/" + cardIdx)
     
@@ -202,7 +229,7 @@ app.get("/cards/:card", function(req, res, next){
 })
 
 app.get("*", function (req, res, next) {
-    console.log("  -- 404!")
+    console.log("\n  -- 404!")
     res.status(404).render('404')
 })
 
@@ -251,17 +278,13 @@ function shuffle(sourceArray) {
     return sourceArray;
 }
 
-// finds elem with max occurence in an array 
+// finds elems with max occurence in an array 
 // (in this case: Max cuisine type in foodData)
-// note: if tie, max elem that appears first is returned
-function mode(array) {
-
-    if (array.length == 1)
-        return array[0];
+function modeArr(array) {
 
     // use hash to store elem and frequency as key-val pairs
     var modeMap = {};
-    var maxElem = array[0].toLowerCase(), maxCount = 1;
+    var modes = [], maxCount = 1;
 
     // iterate thru arr elems
     for (var i = 0; i < array.length; i++) {
@@ -277,12 +300,16 @@ function mode(array) {
         else
             modeMap[elem]++; 
 
-        // if current elem has a greater max count than prev, assign new elem and max count
+        // if current elem has a greater max count than prev, reinitialize modes arr and max count
         if (modeMap[elem] > maxCount) {
-            maxElem = elem;
+            modes = [elem]
             maxCount = modeMap[elem];
-        }
+
+        // if current elem has an equal max count, add elem to modes array
+        } else if (modeMap[elem] === maxCount) 
+            modes.push(elem);
+
     }
 
-    return maxElem;
+    return modes;
 }
