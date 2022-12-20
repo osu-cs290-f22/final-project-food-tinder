@@ -410,8 +410,8 @@ button:hover{
     bottom: 0px;
     left: 0px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    color: rgba(255, 255, 255, 0.85);
-    background: linear-gradient(50deg, #c10016, #f14227);
+    color: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(300deg, #fcfcfc, #dfdfdf);
     animation: glow 2s;
 }
 
@@ -438,8 +438,8 @@ button:hover{
 #add-button:hover {
     height: 180px;
     width: 270px;
-    color: white;
-    background: linear-gradient(50deg, #fc011fdc, #ff8b8be2);
+    color: rgb(0, 0, 0);
+    background: linear-gradient(270deg, #ffffffdc, #ffffff);
 }
 
 #add-button:hover i {
