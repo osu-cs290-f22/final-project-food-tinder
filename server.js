@@ -74,7 +74,7 @@ app.get("/results", function (req, res, next) {
     console.log("\n  --Average Health Score: ", average_health_score)
     console.log("  --LikedCuisineArr: ", likedCuisineArr)
 
-    //find max cuisine(s) type and 
+    //find max cuisine type(s) and generate a random max cuisine
     var maxCuisines = modeArr(likedCuisineArr)
     var randIdx = Math.floor(Math.random() * maxCuisines.length)
     var maxCuisine = maxCuisines[randIdx]
@@ -124,11 +124,13 @@ app.get("/results", function (req, res, next) {
 
 app.post("/post/liked", function(req, res, next) {
     
+    // ensures a food is not liked more than once
     if (likes.indexOf(req.body.cardIndex) == -1) {
         likes.push(req.body.cardIndex)
         res.status(200).send("Added card index to likes array")
         console.log("\nAdded card index to likes array")
 
+    // if food has already been liked, don't re-add it
     } else {
         res.status(200).send("Card index has already been liked")
         console.log("\nCard index has already been liked")
@@ -163,6 +165,7 @@ app.post('/post/add', function (req, res, next) {
     {
         var exists = false
 
+        // check if food obj name already exists in database
         for (var i = 0; i < foodData.length; i++) {
             if (foodData[i].name.toLowerCase() == req.body.name.toLowerCase()) {
                 exists = true

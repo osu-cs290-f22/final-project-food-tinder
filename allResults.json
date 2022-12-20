@@ -14,5 +14,21 @@
     "cuisine": "Hawaiian",
     "prev_name": "Pizza",
     "_locals": {}
+  },
+  {
+    "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
+    "name": "Tacos",
+    "health_score": "7.50",
+    "cuisine": "Mexican",
+    "prev_name": "Spam Musubi",
+    "_locals": {}
+  },
+  {
+    "img_url": "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14221.jpg",
+    "name": "Tacos",
+    "health_score": "7.50",
+    "cuisine": "Mexican",
+    "prev_name": "Tacos",
+    "_locals": {}
   }
 ]

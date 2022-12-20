@@ -50,7 +50,7 @@ function likeClickHandler() {
 }
 
 function dislikeClickHandler() {
-    
+
     // pull current card index from the URL (solution courtesy of Jace)
     var url = window.location.href
     var lastSlashIdx = url.lastIndexOf("/")
@@ -148,7 +148,7 @@ function showAddItemModal() {
     var addItemModal = document.getElementById('add-item-modal');
     var modalBackdrop = document.getElementById('modal-backdrop');
   
-    addItemModal.classList.remove('hidden');
+    addItemModal.classList.add('show');
     modalBackdrop.classList.remove('hidden');
   
   }
@@ -173,7 +173,7 @@ function hideAddItemModal() {
     var addItemModal = document.getElementById('add-item-modal');
     var modalBackdrop = document.getElementById('modal-backdrop');
 
-    addItemModal.classList.add('hidden');
+    addItemModal.classList.remove('show');
     modalBackdrop.classList.add('hidden');
 
     clearAddItemModalInputs();
