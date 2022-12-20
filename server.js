@@ -28,16 +28,17 @@ app.use(express.json()) // generate and register a middleware function with our 
 app.get("/", function (req, res, next) {
     res.status(200).render('instructions')
     likes.length = 0 // when visiting home page, likes reset
-})
-
-app.post("/cardsGo", function (req, res, next) {
-
-    res.redirect("/cards/0")
+    foodData = shuffle(foodData)
+    fs.writeFile(
+        './food-objects.json',
+        JSON.stringify(foodData, null, 2),
+        function (err) {}
+    )
 })
 
 app.get("/results", function (req, res, next) {
 
-    // derfault foodMatch is N/A
+    // default foodMatch is N/A
     var foodMatch = {
         img_url: "https://amahighlights.com/wp-content/uploads/gordon-ramsay.jpg",
         name: "Nothing!",
@@ -52,11 +53,11 @@ app.get("/results", function (req, res, next) {
         return;
     } 
 
-    //1. for loop to iterate through the food data array
+    //iterate through the food data array
     let healthScoreArr = []
     let likedCuisineArr = []
     for (let i = 0; i < likes.length; ++i) {
-        console.log(foodData[likes[i]]);
+        // console.log(foodData[likes[i]]);
         //parse through to read health score and add it to an array
         healthScoreArr.push(foodData[likes[i]].health_score)
         //read most liked cuisine and add it to a different array
@@ -65,155 +66,153 @@ app.get("/results", function (req, res, next) {
     //for loop to go through the healthscore arr and add to a sum
     let sum = 0; 
     for (let i = 0; i < healthScoreArr.length; ++i) {
-        console.log(healthScoreArr[i]) 
         sum += healthScoreArr[i]
     }
     //divide by the number of likes after the loop
     let average_health_score = sum / likes.length
     //average health score = sum
-    console.log("  --Average Health Score: ", average_health_score)
-    //2. 5 count variables and add to it depending on the cuisine type
+    console.log("\n  --Average Health Score: ", average_health_score)
     console.log("  --LikedCuisineArr: ", likedCuisineArr)
-    let countA = 0, countM = 0, countI = 0, countG = 0, countC = 0
-    for (let i = 0; i < likedCuisineArr.length; ++i) {
-        if (likedCuisineArr[i] == 'American') {
-            countA++
-        }
-        else if (likedCuisineArr[i] == 'Mexican') {
-            countM++
-        }
-        else if (likedCuisineArr[i] == 'Italian') {
-            countI++
-        }
-        else if (likedCuisineArr[i] == 'German') {
-            countG++
-        }
-        else if (likedCuisineArr[i] == 'Chinese') {
-            countC++
-        }
-    }
-    let favoriteCuisine;
-    if (countA >= countM && countA >= countI && countA >= countG && countA >= countC) {
-        favoriteCuisine = 'American'
-        console.log("  --Most Liked Cuisine is American")
-    }
-    else if (countM >= countA && countM >= countI && countM >= countG && countM >= countC) {
-        favoriteCuisine = 'Mexican'
-        console.log("  --Most Liked Cuisine is Mexican")
-    }
-    else if (countI >= countM && countI >= countA && countI >= countG && countI >= countC) {
-        favoriteCuisine = 'Italian'
-        console.log("  --Most Liked Cuisine is Italian")
-    }
-    else if (countG >= countM && countG >= countI && countG >= countA && countG >= countC) {
-        favoriteCuisine = 'German'
-        console.log("  --Most Liked Cuisine is German")
-    }
-    else if (countC >= countM && countC >= countI && countC >= countG && countC >= countA) {
-        favoriteCuisine = 'Chinese'
-        console.log("  --Most Liked Cuisine is Chinese")
-    }
-    //3. whichever count variable is the most liked cuisine and closest to the average health score will get placed in foodData[0]
-    if (favoriteCuisine == 'American') {
-        for (let i = 0; i < likes.length; ++i) {
-            if (foodData[likes[i]].cuisine == 'American' && foodData[likes[i]].health_score >= average_health_score) {
-                foodMatch = {
-                    img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine,
-                    prev_name: getPrevName()
-                }
-                storeMatch(foodMatch)
-                res.status(200).render('results', foodMatch)
-                return;
+
+    //find max cuisine type(s) and generate a random max cuisine
+    var maxCuisines = modeArr(likedCuisineArr)
+    var randIdx = Math.floor(Math.random() * maxCuisines.length)
+    var maxCuisine = maxCuisines[randIdx]
+
+    console.log("\n  --Max Cuisine Arr: ", maxCuisines)
+    console.log("  --Recommended Cuisine: ", maxCuisine)
+    
+    var foodMatchIdx // will store best match (as idx of foodData)
+    var minDiff = 10 // will store food elem that deviates the least from the avg healthscore
+
+    // find idx of best food match based on health score
+    for (let i = 0; i < likes.length; ++i) {
+
+        var foodElem = foodData[likes[i]] // current food elem
+
+        if (foodElem.cuisine.toLowerCase() == maxCuisine) {
+
+            // calc difference from avg health score
+            var temp = Math.abs(foodElem.health_score - average_health_score)
+
+            // replace current min if the difference calculated is less
+            if (temp <= minDiff) {
+
+                minDiff = temp
+                foodMatchIdx = likes[i]
+
             }
         }
     }
-    else if (favoriteCuisine == 'Mexican') {
-        for (let i = 0; i < likes.length; ++i) {
-            if (foodData[likes[i]].cuisine == 'Mexican' && foodData[likes[i]].health_score >= average_health_score) {
-                foodMatch = {
-                    img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine,
-                    prev_name: getPrevName()
-                }
-                storeMatch(foodMatch)
-                res.status(200).render('results', foodMatch)
-                return;
-            }
-        }
+
+    console.log("\n --minDiff: " + minDiff, " --foodMatchIdx: " + foodMatchIdx)
+
+    // store results page context
+    foodMatch = {
+        img_url: foodData[foodMatchIdx].img_url,
+        name: foodData[foodMatchIdx].name,
+        health_score: Number.parseFloat(average_health_score).toFixed(2),
+        cuisine: foodData[foodMatchIdx].cuisine,
+        prev_name: getPrevName()
     }
-    else if (favoriteCuisine == 'Italian') {
-        for (let i = 0; i < likes.length; ++i) {
-            if (foodData[likes[i]].cuisine == 'Italian' && foodData[likes[i]].health_score >= average_health_score) {
-                foodMatch = {
-                    img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine,
-                    prev_name: getPrevName()
-                }
-                storeMatch(foodMatch)
-                res.status(200).render('results', foodMatch)
-                return;
-            }
-        }
-    }
-    else if (favoriteCuisine == 'German') {
-        for (let i = 0; i < likes.length; ++i) {
-            if (foodData[likes[i]].cuisine == 'German' && foodData[likes[i]].health_score >= average_health_score) {
-                foodMatch = {
-                    img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine,
-                    prev_name: getPrevName()
-                }
-                storeMatch(foodMatch)
-                res.status(200).render('results', foodMatch)
-                return;
-            }
-        }
-    }
-    else if (favoriteCuisine == 'Chinese') {
-        for (let i = 0; i < likes.length; ++i) {
-            if (foodData[likes[i]].cuisine == 'Chinese' && foodData[likes[i]].health_score >= average_health_score) {
-                foodMatch = {
-                    img_url: foodData[likes[i]].img_url,
-                    name: foodData[likes[i]].name,
-                    health_score: Number.parseFloat(average_health_score).toFixed(2),
-                    cuisine: favoriteCuisine,
-                    prev_name: getPrevName()
-                }
-                storeMatch(foodMatch)
-                res.status(200).render('results', foodMatch)
-                return;
-            }
-        }
-    }
+
+    // store match in separate json file
+    storeMatch(foodMatch)
+    res.status(200).render('results', foodMatch)
+
 })
 
 app.post("/post/liked", function(req, res, next) {
     
-    likes.push(req.body.cardIndex)
-    res.status(200).send("Added card index to the array")
+    // ensures a food is not liked more than once
+    if (likes.indexOf(req.body.cardIndex) == -1) {
+        likes.push(req.body.cardIndex)
+        res.status(200).send("Added card index to likes array")
+        console.log("\nAdded card index to likes array")
+
+    // if food has already been liked, don't re-add it
+    } else {
+        res.status(200).send("Card index has already been liked")
+        console.log("\nCard index has already been liked")
+    }
 
     console.log(" -- POST: [" + likes + "]")
 
 })
 
+app.post("/post/disliked", function(req, res, next) {
+    
+    var cardIndex = likes.indexOf(req.body.cardIndex)
+
+    // if food has prev been liked, remove it from likes array
+    if (cardIndex != -1) {
+        likes.splice(cardIndex, 1)
+        res.status(200).send("Card index removed from likes array")
+        console.log("\nCard index removed from likes array")
+    }
+
+    console.log(" -- POST: [" + likes + "]")
+
+})
+
+app.post('/post/add', function (req, res, next) {
+
+    if (req.body && 
+        req.body.img_url && 
+        req.body.name && 
+        req.body.health_score && 
+        req.body.cuisine) 
+    {
+        var exists = false
+
+        // check if food obj name already exists in database
+        for (var i = 0; i < foodData.length; i++) {
+            if (foodData[i].name.toLowerCase() == req.body.name.toLowerCase()) {
+                exists = true
+            }
+        }
+
+        if (exists) {     
+            res.status(409).send("Food obj already exists!!")
+        
+        } else {
+            var foodObj = {
+                img_url: req.body.img_url,
+                name: req.body.name,
+                health_score: req.body.health_score,
+                cuisine: req.body.cuisine
+            }
+
+            foodData.push(foodObj)
+
+            fs.writeFile(
+                './food-objects.json',
+                JSON.stringify(foodData, null, 2),
+                function (err) {
+                    if (err) {
+                        res.status(500).send("Error writing food to DB")
+                    } else {
+                        res.status(200).send("Food successfully added!!")
+                    }
+                }
+            )
+        }
+
+    } else {
+        res.status(400).send("Request didn't have a body!")
+    }
+})
+
 app.get("/cards/:card", function(req, res, next){
 
+    console.log("\n --foodData length:", foodData.length)
     var cardIdx = req.params.card
     console.log("  -- GET: /cards/" + cardIdx)
     
-    if (cardIdx >= 0 && cardIdx < 15) { // max index is 14
+    if (cardIdx >= 0 && cardIdx < foodData.length) { 
 
         var singleCard = []
-        singleCard[0] = foodData[req.params.card]
+        singleCard[0] = foodData[cardIdx]
       
         res.status(200).render('foodPage', {
     
@@ -221,6 +220,10 @@ app.get("/cards/:card", function(req, res, next){
             
         })
 
+    } else if (cardIdx == foodData.length) {
+
+        res.redirect("/results")
+    
     } else { // otherwise 404
 
         next()
@@ -229,7 +232,7 @@ app.get("/cards/:card", function(req, res, next){
 })
 
 app.get("*", function (req, res, next) {
-    console.log("  -- 404!")
+    console.log("\n  -- 404!")
     res.status(404).render('404')
 })
 
@@ -260,9 +263,56 @@ function getPrevName () {
 
     var file = fs.readFileSync("./allResults.json")
     var json = JSON.parse(file)
-    if (json.length !== 0) {
+    if (json.length > 0) {
         var lastElement = json[json.length - 1]
         return lastElement.name
     }
     return null
+}
+
+function shuffle(sourceArray) {
+    for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+    }
+    return sourceArray;
+}
+
+// finds elems with max occurence in an array 
+// (in this case: Max cuisine type in foodData)
+function modeArr(array) {
+
+    // use hash to store elem and frequency as key-val pairs
+    var modeMap = {};
+    var modes = [], maxCount = 1;
+
+    // iterate thru arr elems
+    for (var i = 0; i < array.length; i++) {
+
+        // current elem
+        var elem = array[i].toLowerCase();
+
+        // if elem is not in map, add elem as key and assign 1 as initial val
+        if (modeMap[elem] == null)
+            modeMap[elem] = 1;
+        
+        // increment current elem if in map
+        else
+            modeMap[elem]++; 
+
+        // if current elem has a greater max count than prev, reinitialize modes arr and max count
+        if (modeMap[elem] > maxCount) {
+            modes = [elem]
+            maxCount = modeMap[elem];
+
+        // if current elem has an equal max count, add elem to modes array
+        } else if (modeMap[elem] === maxCount) 
+            modes.push(elem);
+
+    }
+
+    return modes;
 }
